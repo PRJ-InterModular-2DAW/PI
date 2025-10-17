@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>Formulario</h2>
-    <form method="POST" action="">
+    <form action="index.php" method="POST">
         <div>
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre"><br>
@@ -18,8 +18,9 @@
         <div>
             <label for="module">Modulo:</label>
             <select name="module" id="module">
-                <option value="">--Selecciona un Modulo--</option>
-                //php
+                <option value="" default>--Selecciona un Modulo--</option>
+                <option value="DAW">DAW</option>
+                <option value="DAM">DAM</option>
             </select>
         </div>
         <div>
