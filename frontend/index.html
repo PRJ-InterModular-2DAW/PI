@@ -1,1 +1,40 @@
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Formulario</h2>
+    <form method="POST" action="">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre"><br>
+        </div>
+            <label for="email">Correo electronico: </label>
+            <input type="email" id="email" name="email"><br>
+        <div>
+            <label for="module">Modulo:</label>
+            <select name="module" id="module">
+                <option value="">--Selecciona un Modulo--</option>
+                //php
+            </select>
+        </div>
+        <div>
+            <label for="phone">Telefono</label>
+            <input type="tel" name="phone" id="phone"><br>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="acepto" value="si">
+                Acepto los términos y condiciones
+            </label>
+        </div>
+        <div>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</body>
+</html>
