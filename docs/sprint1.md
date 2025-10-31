@@ -22,3 +22,14 @@ Durante esta primera iteración, se trabaja configuración del entorno, la creac
 - [x] Maquetació pàgina inicial  
 - [x] Formulari de contacte (HTML + validació PHP)  
 - [ ] Pla de riscos laborals
+
+## 🛠️ Tecnologies que farem servir  
+| Àmbit | Eines / Tecnologies |
+|--------|----------------------|
+| 💻 **Frontend** | HTML5, CSS3, JavaScript |
+| ⚙️ **Backend** | PHP 8 |
+| 🗃️ **Base de dades** | MySQL / MariaDB |
+| 🧩 **Control de versions** | Git + GitHub |
+| 📈 **Gestió del projecte** | GitHub Projects (Kanban) |
+| 🧮 **Planificació** | GanttProject |
+| 📄 **Documentació** | Markdown |
