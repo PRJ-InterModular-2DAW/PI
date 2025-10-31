@@ -1,7 +1,7 @@
 ## 🛒 Ecommerce-PI
 
 ## 👥 Autores
- - Kevin Tolsa
+ - Kevin Tolsa Garrido
  - Adam Aaloul Izariahen
 
 
