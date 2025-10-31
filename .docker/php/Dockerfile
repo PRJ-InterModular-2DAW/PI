@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
-# Instalar extensiones necesarias
+FROM php:latest
+FROM php:8.2-apache
 RUN docker-php-ext-install pdo_mysql
 WORKDIR /var/www/html
