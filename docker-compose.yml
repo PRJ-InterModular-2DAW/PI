@@ -21,6 +21,8 @@ services:
     container_name: pi_php
     volumes:
       - ./backend:/var/www/html              # tu código PHP
+      - ./uploads:/var/www/uploads
+      - ./data:/var/www/data
     environment:
       - DB_HOST=db
       - DB_NAME=pi_db

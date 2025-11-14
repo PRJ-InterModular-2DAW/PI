@@ -16,7 +16,7 @@
     <h1>📥 Importador de Productes</h1>
     <p>Puja un fitxer Excel (.xlsx, .xls) amb les columnes: <strong>SKU, Nom, Descripció, Imatge, Preu, Estoc</strong>.</p>
     
-    <form action="../backend/importar_excel.php" method="post" enctype="multipart/form-data">
+    <form action="/importar_excel.php" method="post" enctype="multipart/form-data">
         <label for="excelFile">Selecciona el fitxer:</label>
         <input type="file" name="excelFile" id="excelFile" accept=".xlsx, .xls" required>
         <button type="submit">🚀 Importar Productes</button>

@@ -4,8 +4,8 @@ require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 // 2. CONFIGURACIÓ DE RUTES
-$uploadsDir = '../uploads/';
-$dataDir = '../data/';
+$uploadsDir = '/var/www/uploads/';
+$dataDir = '/var/www/data/';
 $jsonFilePath = $dataDir . 'products.json';
 
 // 3. VALIDAR I DESAR EL FITXER PUJAT
@@ -113,7 +113,7 @@ $importedCount = count($products);
         </a>
     </p>
     <p>
-        <a href="../frontend/importar.html">Tornar al formulari</a>
+        <a href="/importar.html">Tornar al formulari</a>
     </p>
 </body>
 
