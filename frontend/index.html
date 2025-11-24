@@ -8,7 +8,11 @@
 </head>
 <body>
     <h2>Formulario</h2>
-    <form action="backend/index.php" method="POST" enctype="multipart/form-data">
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+        <a href="backend/auth/login.php">Iniciar Sesión</a>
+        <a href="backend/auth/register.php">Registrarse</a>
+    </div>
+    <form action="api/index.php" method="POST" enctype="multipart/form-data">
         <div>
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre"><br>
