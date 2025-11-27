@@ -98,3 +98,32 @@ function actualizarUsuarioPatch(string $id, array $dataToPatch) {
     // Endpoint: /usuaris/{id}
     return makeApiRequest("/usuaris/{$id}", 'PATCH', $dataToPatch);
 }
+/**
+ * Calcula el siguiente ID disponible recorriendo todos los usuarios.
+ * Es más seguro porque convierte los IDs de texto a número en PHP.
+ * @return int El siguiente ID.
+ */
+function obtenerSiguienteIdUsuario() {
+    // 1. Pedimos TODOS los usuarios
+    $todosLosUsuaris = makeApiRequest("/usuaris", 'GET');
+
+    // Si no hay usuarios o error, empezamos por el 1
+    if (!$todosLosUsuaris || empty($todosLosUsuaris)) {
+        return 1;
+    }
+
+    $maxId = 0;
+
+    // 2. Recorremos la lista para encontrar el número más alto
+    foreach ($todosLosUsuaris as $usuari) {
+        // Convertimos "id": "5" a entero 5 para comparar números reales
+        $idActual = intval($usuari['id'] ?? 0);
+        
+        if ($idActual > $maxId) {
+            $maxId = $idActual;
+        }
+    }
+
+    // 3. Devolvemos el máximo encontrado + 1
+    return $maxId + 1;
+}

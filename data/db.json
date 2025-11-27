@@ -52,22 +52,22 @@
       "data_registre": "2025-10-31T10:00:00Z"
     },
     {
-      "id": "14c1",
+      "id": "2",
       "nom_usuari": "adam",
-      "contrasenya": "$2y$10$nvseX02Jm610jbc1EnCktebFYuvTl8ZVWEhNOSbLvuqPeChkl72Xu",
+      "contrasenya": "$2y$10$EoMxoJ9gV92P1ZKHga93aOjmgEl6wK5tgGwU0WzBjEiT0qFfNlFrK",
       "email": "adamakloul@icloud.com",
       "nom": "Adam",
       "cognoms": "Aaloul",
-      "data_registre": "2025-11-27T15:34:11+00:00"
+      "data_registre": "2025-11-27T16:04:38+00:00"
     },
     {
-      "id": "72ca",
+      "id": "3",
       "nom_usuari": "kevin",
-      "contrasenya": "$2y$10$eb38Ccoqf9v04iLjRSiuM.r9fyzjK4yabFJwQ.TM.EoGXx2P3/22W",
+      "contrasenya": "$2y$10$xGT5Rxl4gWRdUEwinX70iO37PCK7bZ0FGL89NvVmxgh0dRbW7w9Ea",
       "email": "kevintolsa@gmail.com",
       "nom": "Kevin",
       "cognoms": "Tolsa",
-      "data_registre": "2025-11-27T15:53:11+00:00"
+      "data_registre": "2025-11-27T16:05:02+00:00"
     }
   ]
 }
