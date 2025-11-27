@@ -45,14 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
     
-    // Mostrar errores
-    if (!empty($errores)) {
-        echo "<h3>Error d'inici de sessió:</h3><ul>";
-        foreach ($errores as $error) {
-            echo "<li>" . htmlspecialchars($error) . "</li>";
-        }
-        echo "</ul>";
-    }
 }
 ?>
 <!DOCTYPE html>

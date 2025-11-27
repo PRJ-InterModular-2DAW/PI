@@ -6,7 +6,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 // 2. CONFIGURACIÓ DE RUTES
 $uploadsDir = '/var/www/uploads/';
 $dataDir = '/var/www/data/';
-$jsonFilePath = $dataDir . 'products.json';
+$jsonFilePath = $dataDir . 'db.json';
 
 // 3. VALIDAR I DESAR EL FITXER PUJAT
 // ------------------------------------

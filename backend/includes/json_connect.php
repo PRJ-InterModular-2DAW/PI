@@ -2,7 +2,7 @@
 // backend/includes/json_connect.php
 
 // Define la URL base de tu JSON Server (¡AJUSTA ESTA URL!)
-define('API_URL', 'http://jsonserver:3000'); 
+define('API_URL', 'http://jsonserver:3000');
 
 // -----------------------------------------------------
 // FUNCIÓN GENERAL PARA PETICIONES (GET, PATCH, POST)
@@ -73,7 +73,7 @@ function buscarUsuarioPorNombre(string $nomUsuari) {
  * @param int $id ID del usuario.
  * @return array|false Datos del usuario o false.
  */
-function obtenerUsuarioPorId(int $id) {
+function obtenerUsuarioPorId(string $id) {
     // Endpoint: /usuaris/{id}
     return makeApiRequest("/usuaris/{$id}", 'GET');
 }
@@ -94,7 +94,7 @@ function registrarUsuario(array $data) {
  * @param array $dataToPatch Datos a actualizar.
  * @return array|false Datos del usuario actualizado o false.
  */
-function actualizarUsuarioPatch(int $id, array $dataToPatch) {
+function actualizarUsuarioPatch(string $id, array $dataToPatch) {
     // Endpoint: /usuaris/{id}
     return makeApiRequest("/usuaris/{$id}", 'PATCH', $dataToPatch);
 }

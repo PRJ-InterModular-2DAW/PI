@@ -1,7 +1,7 @@
 {
   "productes": [
     {
-      "id": 1,
+      "id": "1",
       "sku": "SKU-1",
       "nom": "Camiseta Ralph Lauren",
       "descripcio": "Camiseta de algodon 100% de manga corta",
@@ -9,7 +9,7 @@
       "estoc": 25
     },
     {
-      "id": 2,
+      "id": "2",
       "sku": "SKU-2",
       "nom": "Zapatillas Nike",
       "descripcio": "Zapatillas perfectaas para salir a correr",
@@ -17,7 +17,7 @@
       "estoc": 15
     },
     {
-      "id": 3,
+      "id": "3",
       "sku": "SKU-3",
       "nom": "Chaqueta Lacoste",
       "descripcio": "Chaqueta perfecta para esos dias de frio",
@@ -25,7 +25,7 @@
       "estoc": 30
     },
     {
-      "id": 4,
+      "id": "4",
       "sku": "SKU-4",
       "nom": "Sudadera The North Face",
       "descripcio": "Sudadera para el dia a dia",
@@ -33,7 +33,7 @@
       "estoc": 40
     },
     {
-      "id": 5,
+      "id": "5",
       "sku": "SKU-5",
       "nom": "Reloj Casio",
       "descripcio": "Reloj perfecto para uso cotiaidano",
@@ -43,13 +43,31 @@
   ],
   "usuaris": [
     {
-      "id": 1,
+      "id": "1",
       "nom_usuari": "andres",
       "contrasenya": "$2y$10$ABC123HASHXIFRAT...",
       "email": "andres@example.com",
       "nom": "Andrés",
       "cognoms": "García Pérez",
       "data_registre": "2025-10-31T10:00:00Z"
+    },
+    {
+      "id": "14c1",
+      "nom_usuari": "adam",
+      "contrasenya": "$2y$10$nvseX02Jm610jbc1EnCktebFYuvTl8ZVWEhNOSbLvuqPeChkl72Xu",
+      "email": "adamakloul@icloud.com",
+      "nom": "Adam",
+      "cognoms": "Aaloul",
+      "data_registre": "2025-11-27T15:34:11+00:00"
+    },
+    {
+      "id": "72ca",
+      "nom_usuari": "kevin",
+      "contrasenya": "$2y$10$eb38Ccoqf9v04iLjRSiuM.r9fyzjK4yabFJwQ.TM.EoGXx2P3/22W",
+      "email": "kevintolsa@gmail.com",
+      "nom": "Kevin",
+      "cognoms": "Tolsa",
+      "data_registre": "2025-11-27T15:53:11+00:00"
     }
   ]
 }

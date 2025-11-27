@@ -3,7 +3,32 @@
 ## 1. Introducción
 Este documento detalla los riesgos laborales asociados al desarrollo del proyecto **Ecommerce-PI** y las medidas preventivas adoptadas por el equipo de desarrollo. El objetivo es garantizar la seguridad y salud de los desarrolladores (Kevin Tolsa y Adam Aaloul) durante las fases de diseño, programación y despliegue, cumpliendo con la normativa vigente sobre trabajos con Pantallas de Visualización de Datos (PVD).
 
-## 2. Identificación de Riesgos y Medidas Preventivas
+## 2. Identificación de Riesgos
+
+A continuación se desglosan los riesgos identificados según su naturaleza (ambientales, ergonómicos y de seguridad):
+
+### **A. Factores Ambientales**
+* **Agentes Físicos (Iluminación)**
+    * **Riesgo:** Fatiga Visual.
+    * **Descripción:** Cansancio ocular, sequedad, picor o visión borrosa debido a la atención continua a la pantalla y una iluminación deficiente o con reflejos.
+
+### **B. Factores Ergonómicos**
+* **Carga Física (Postural)**
+    * **Riesgo:** Trastornos Musculoesqueléticos.
+    * **Descripción:** Dolores en zona cervical, dorsal y lumbar ocasionados por posturas estáticas prolongadas (sedentarismo) y mala higiene postural.
+* **Carga Física (Dinámica)**
+    * **Riesgo:** Lesiones por Movimientos Repetitivos.
+    * **Descripción:** Posible aparición de síndrome del túnel carpiano o tendinitis debido al uso intensivo y continuado de teclado y ratón.
+* **Carga Mental (Fatiga Mental)**
+    * **Riesgo:** Estrés y "Burnout".
+    * **Descripción:** Estados de ansiedad, fatiga mental o bloqueo cognitivo derivados de plazos de entrega muy ajustados o la complejidad lógica del código.
+
+### **C. Condiciones de Seguridad**
+* **Riesgos Eléctricos**
+    * **Riesgo:** Contacto eléctrico.
+    * **Descripción:** Posibilidad de contacto directo o indirecto por manipulación de equipos en mal estado, cables pelados o sobrecarga de conexiones.
+
+## 2.1. Plan de Riesgos y Medidas Preventivas
 
 A continuación se detallan los riesgos específicos del puesto de "Desarrollador Web" y las acciones para mitigarlos.
 
@@ -15,7 +40,9 @@ A continuación se detallan los riesgos específicos del puesto de "Desarrollado
 | **Carga Mental (Estrés)** | Ansiedad, fatiga mental o bloqueo ("Burnout") por plazos de entrega ajustados o complejidad del código. | • Planificación realista mediante **GitHub Projects** (Kanban).<br>• Definición clara de tareas y reparto equitativo.<br>• Descansos activos lejos del ordenador. |
 | **Riesgos Eléctricos** | Contacto eléctrico directo o indirecto por equipos en mal estado. | • Revisión visual del cableado del PC y monitores.<br>• No sobrecargar regletas o enchufes.<br>• Mantener la zona de trabajo libre de líquidos cerca de componentes electrónicos. |
 
-## 3. Ergonomía del Puesto de Trabajo
+
+
+## 2.2. Ergonomía del Puesto de Trabajo
 
 Para cumplir con la higiene postural, el puesto de desarrollo debe seguir las siguientes pautas de configuración:
 
@@ -28,7 +55,7 @@ Para cumplir con la higiene postural, el puesto de desarrollo debe seguir las si
 3.  **Mesa:** Superficie mate para evitar reflejos, con espacio suficiente para teclado, ratón y documentos.
 4.  **Entorno:** Temperatura de confort (23ºC - 26ºC) y ventilación adecuada.
 
-## 4. Normativa de Referencia
+## 2.3. Normativa de Referencia
 Este plan se basa en las recomendaciones generales de la **Ley 31/1995 de Prevención de Riesgos Laborales** y el **Real Decreto 488/1997** sobre disposiciones mínimas de seguridad y salud relativas al trabajo con equipos que incluyen pantallas de visualización.
 
 ---
