@@ -1,0 +1,483 @@
+@charset "UTF-8";
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: "Montserrat", "Avenir";
+  background: #d6d8df;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "header-left logo header-right";
+  padding: 10px 20px;
+  background-color: #fff1cf;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+header .header-left {
+  grid-area: header-left;
+  margin-left: 30px;
+  margin-top: 2%;
+}
+header .header-left p a {
+  color: #000;
+  text-decoration: none;
+  margin-right: 50px;
+  margin-top: 4%;
+  justify-self: start;
+  float: left;
+}
+header .header-right {
+  grid-area: header-right;
+}
+header .header-right img {
+  margin-right: 20px;
+  margin-top: 4%;
+  float: right;
+}
+header .icon {
+  width: 25px;
+  margin-right: 5px;
+}
+header .logo {
+  grid-area: logo;
+  justify-self: center;
+  width: 300px;
+}
+
+/*--------------- APARTADO DEL NAVEGADOR (OPTIMIZADO) ---------------*/
+nav {
+  display: grid;
+  grid-template-areas: "novedades ropa calzado accesorios relojes buscador";
+  grid-template-columns: repeat(5, auto) 1fr;
+  column-gap: 3px;
+  background-color: #fff;
+  padding: 0.3% 0%;
+  width: 100%;
+  height: 30px;
+  border-bottom: solid 1px #000;
+  border-top: solid 1px #000;
+  font-weight: bold;
+}
+nav a {
+  color: #000;
+  text-decoration: none;
+}
+nav .nav-item {
+  padding: 5px;
+  margin: 0;
+}
+nav #novedades {
+  grid-area: novedades;
+  border-right: solid 2px #000;
+  padding-right: 15px;
+}
+nav #ropa {
+  grid-area: ropa;
+}
+nav #calzado {
+  grid-area: calzado;
+}
+nav #accesorios {
+  grid-area: accesorios;
+}
+nav #relojes {
+  grid-area: relojes;
+}
+nav #buscador {
+  grid-area: buscador;
+}
+nav #buscador img {
+  width: 16px;
+  margin-right: 5px;
+  margin-top: 2px;
+}
+nav #buscador .input-buscador {
+  border: none;
+  border-bottom: solid 1px #000;
+  outline: none;
+}
+nav .nav-item-rigth {
+  width: 200px;
+  justify-self: end;
+}
+
+.slider .img-slider {
+  height: 300px;
+  width: 97.5%;
+  margin: 20px;
+  border-radius: 20px;
+  background-color: #d6d8df;
+}
+
+.slider-container {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  position: relative;
+  width: 95%;
+  margin: 20px;
+  border-radius: 20px;
+}
+.slider-container .img-slider {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  background-color: #d6d8df;
+}
+.slider-container .img-flecha {
+  position: absolute;
+  top: 150px;
+  left: 98%;
+  right: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+.slider-container .img-pageControl {
+  position: absolute;
+  bottom: 30px;
+  left: 48%;
+  width: 60px;
+}
+
+/*--------------- Apartado de productos en el body  ---------------*/
+.inicioProducts {
+  margin: 0px 20px 20px 20px;
+  border-radius: 20px;
+  background-color: #fff;
+  padding-bottom: 40px;
+}
+.inicioProducts article {
+  display: grid;
+  grid-template-areas: "titulo titulo titulo titulo" "prod1 prod2 prod3 prod4";
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 40px;
+}
+.inicioProducts .tituloProductos {
+  grid-area: titulo;
+  padding: 20px 0px 0px 0px;
+  margin-bottom: 10px;
+}
+.inicioProducts #prod-1 {
+  grid-area: prod1;
+}
+.inicioProducts #prod-2 {
+  grid-area: prod2;
+}
+.inicioProducts #prod-3 {
+  grid-area: prod3;
+}
+.inicioProducts #prod-4 {
+  grid-area: prod4;
+}
+.inicioProducts .producto {
+  position: relative;
+  overflow: hidden;
+}
+.inicioProducts .producto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  background-color: #d6d8df;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.inicioProducts .producto .btn-producto {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background-color: #fff1cf;
+  color: #000;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+  opacity: 0;
+  bottom: -20px;
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+/*---------------------------------------------VIDEO (ANIDADO)--------------------------------------*/
+.video-contenido {
+  position: relative;
+  width: 100%;
+}
+.video-contenido video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+.video-contenido .capa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  padding: 20px;
+  border-radius: 0;
+}
+.video-contenido .capa .capa-content {
+  text-align: center;
+}
+.video-contenido .capa p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Estilo del botón */
+.btn {
+  background-color: #fff1cf;
+  color: #000;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+footer {
+  color: #fff;
+  background-color: #9196ae;
+  padding: 40px 20px;
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "ventajas redes pago contacto" "ayuda    marcas .    .";
+  column-gap: 20px;
+  row-gap: 40px;
+}
+footer .titulo-footer {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+footer .ventajasFooter {
+  grid-area: ventajas;
+  display: grid;
+  gap: 5px;
+  align-content: start;
+}
+footer .ventajasFooter a {
+  color: #fff;
+  text-decoration: none;
+}
+footer .redesSociales {
+  grid-area: redes;
+}
+footer .redesSociales .iconos-redes {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  gap: 15px;
+}
+footer .redesSociales .logo {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  grid-area: auto;
+}
+footer .payMetodsFooter {
+  grid-area: pago;
+}
+footer .payMetodsFooter .iconos-pago {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, max-content));
+  gap: 10px;
+  justify-content: start;
+}
+footer .payMetodsFooter img {
+  height: 35px;
+  width: auto;
+}
+footer .infoContacto {
+  grid-area: contacto;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+footer .infoContacto .item-contacto {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+footer .infoContacto .item-contacto img {
+  width: 20px;
+  height: 20px;
+}
+footer .ayudaFooter {
+  grid-area: ayuda;
+  display: grid;
+  gap: 5px;
+  align-content: start;
+}
+footer .ayudaFooter a {
+  color: #fff;
+  text-decoration: none;
+}
+footer .marcasFooter {
+  grid-area: marcas;
+}
+footer .marcasFooter .logos-marcas {
+  display: grid;
+  grid-template-columns: repeat(5, max-content);
+  gap: 20px;
+  align-items: center;
+}
+footer .marcasFooter .logos-marcas img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-item:hover {
+  color: #fff;
+  background-color: #9196ae;
+  border-radius: 10px;
+}
+
+.header-left p a {
+  display: inline-block;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+.header-left p a:hover {
+  transform: scale(1.1);
+  background-color: #9196ae;
+  cursor: pointer;
+}
+
+.producto {
+  border-radius: 20px;
+  transition: border 0.3s ease;
+}
+.producto img {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.producto:hover {
+  border-color: #000;
+}
+.producto:hover .btn-producto {
+  opacity: 1;
+  bottom: 40%;
+}
+.producto:hover img {
+  filter: brightness(70%);
+  transform: scale(1.1);
+}
+
+.btn:hover {
+  background-color: #d6d8df;
+}
+
+.ayudaFooter a:hover,
+.ventajasFooter a:hover,
+.infoContacto a:hover {
+  color: #d6d8df;
+}
+
+.icon,
+.redesSociales .logo,
+.payMetodsFooter .logo,
+.marcasFooter .logo {
+  transition: transform 0.3s ease;
+}
+.icon:hover,
+.redesSociales .logo:hover,
+.payMetodsFooter .logo:hover,
+.marcasFooter .logo:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/*Animacion bandera*/
+@keyframes slideBandera {
+  0% {
+    content: url("../img/header/iconoBanderaEspaña.png");
+  }
+  50% {
+    content: url("../img/header/iconoBanderaInglesa.png");
+  }
+  100% {
+    content: url("../img/header/iconoBanderaEspaña.png");
+  }
+}
+.header-right #logoBandera {
+  animation: slideBandera 10s infinite;
+}
+
+/*Animacion carrito*/
+@keyframes saltoCarrito {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  70% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+#carritoCompra {
+  animation-name: saltoCarrito;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+}
+
+#nav-ropa {
+  animation-delay: 0.5s;
+  animation-name: saltoCarrito;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+#nav-calzado {
+  animation-delay: 0.7s;
+  animation-name: saltoCarrito;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+#nav-accesorios {
+  animation-delay: 1s;
+  animation-name: saltoCarrito;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+#nav-relojes {
+  animation-delay: 1.3s;
+  animation-name: saltoCarrito;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+/*# sourceMappingURL=estilos.css.map */

@@ -1,0 +1,110 @@
+@use 'colores';
+@use 'mixins';
+
+footer { 
+    color: colores.$color-text-footer;
+    background-color: colores.$color-background-footer;
+    padding: 40px 20px;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "ventajas redes pago contacto"
+        "ayuda    marcas .    .";
+    column-gap: 20px; 
+    row-gap: 40px;
+
+    .titulo-footer {
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 15px;
+    }
+
+    .ventajasFooter {
+        grid-area: ventajas;
+        @include mixins.footer-column-base(5px);
+
+        a {
+            @include mixins.text-link-reset;
+        }
+    }
+
+    .redesSociales { 
+        grid-area: redes;
+
+        .iconos-redes {
+            display: grid;
+            grid-auto-flow: column; 
+            justify-content: start;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+            grid-area: auto; 
+        }
+    }
+
+    .payMetodsFooter { 
+        grid-area: pago;
+        
+        .iconos-pago {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(40px, max-content));
+            gap: 10px;
+            justify-content: start;
+        }
+
+        img {
+            height: 35px; 
+            width: auto;
+        }
+    }
+
+    .infoContacto { 
+        grid-area: contacto;
+        @include mixins.footer-column-base(10px);
+
+        .item-contacto {
+            display: grid;
+            grid-template-columns: 20px 1fr;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item-contacto img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .ayudaFooter { 
+        grid-area: ayuda;
+        @include mixins.footer-column-base(5px);
+
+        a {
+            @include mixins.text-link-reset;
+        }
+    }
+
+    .marcasFooter { 
+        grid-area: marcas;
+        
+        .logos-marcas {
+            display: grid;
+            grid-template-columns: repeat(5, max-content);
+            gap: 20px; 
+            align-items: center; 
+        }
+
+        .logos-marcas img {
+            height: 30px;
+            width: auto; 
+            object-fit: contain;
+        }
+    }
+}

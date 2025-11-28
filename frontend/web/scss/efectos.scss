@@ -1,0 +1,67 @@
+@use 'colores'; // Importar módulo
+
+.nav-item:hover {
+  color: colores.$color-text-footer;
+  background-color: colores.$color-background-footer;
+  border-radius: 10px;
+}
+
+.header-left p a {
+  display: inline-block; 
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  padding: 5px 10px; 
+  border-radius: 8px;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: colores.$color-background-footer;
+    cursor: pointer;
+  }
+}
+
+.producto {
+  border-radius: 20px;
+  transition: border 0.3s ease;
+
+  img {
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  &:hover {
+    border-color: colores.$color-text;
+
+    .btn-producto {
+      opacity: 1;
+      bottom: 40%;
+    }
+
+    img {
+      filter: brightness(70%);
+      transform: scale(1.1);
+    }
+  }
+}
+
+.btn:hover {
+  background-color: colores.$color-background-body-slider-product;
+}
+
+.ayudaFooter,
+.ventajasFooter,
+.infoContacto {
+  & a:hover {
+    color: colores.$color-background-body-slider-product;
+  }
+}
+
+.icon, 
+.redesSociales .logo,
+.payMetodsFooter .logo,
+.marcasFooter .logo {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+}

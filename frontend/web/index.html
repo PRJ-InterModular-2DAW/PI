@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L&SSHOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="header-left">
+        <p><a class="filtroSexo" href="#">Mujer</a></p>
+        <p><a class="filtroSexo" href="#">Hombre</a></p>
+      </div>
+
+      <img src="img/header/logo.png" class="logo" alt="Logo L&SSHOP" />
+
+      <div class="header-right">
+
+        <img
+          src="img/header/iconoCarritos.png"
+          class="icon"
+          id="carritoCompra"
+          alt="Carrito de compra"
+        />
+
+        <img 
+          src="img/header/iconoFavoritos.png" 
+          class="icon" 
+          alt="Favoritos" 
+        />
+       
+        <a href="../../backend/auth/login.php">   
+          <img
+            src="img/header/iconoPerfil.png"
+            class="icon"
+            alt="Perfil de usuario"
+          />
+        </a>
+
+        <img
+          src="img/header/iconoBanderaEspaña.png"
+          class="icon"
+          alt="Bandera de España"
+        />
+
+      </div>
+    </header>
+
+    <nav>
+      <div class="nav-item" id="novedades">
+        <a href="#">NOVEDADES</a>
+      </div>
+      <div class="nav-item" id="nav-ropa">
+        <a href="#">Ropa</a>
+      </div>
+      <div class="nav-item" id="nav-calzado">
+        <a href="#">Calzado</a>
+      </div>
+      <div class="nav-item" id="nav-accesorios">
+        <a href="#">Accesorios</a>
+      </div>
+      <div class="nav-item" id="nav-relojes">
+        <a href="#">Relojes</a>
+      </div>
+      <div class="nav-item-rigth" id="buscador">
+        <img src="img/nav/iconoBuscar.png" alt="Buscar" />
+        <input type="text" placeholder="Buscar . . ." class="input-buscador" />
+      </div>
+    </nav>
+
+    <section class="slider">
+      <div class="slider-container">
+        <img
+          src="img/carruselPrincipal/stone.jpg"
+          alt="stoneIsland"
+          class="img-slider"
+        />
+        <img
+          src="img/carruselPrincipal/flecha.png"
+          alt="flecha"
+          class="img-flecha"
+        />
+        <img
+          src="img/carruselPrincipal/pageControl.png"
+          alt="pageControl"
+          class="img-pageControl"
+        />
+      </div>
+    </section>
+
+    <section class="inicioProducts">
+      <article>
+        <h3 class="tituloProductos">RALPH LAUREN</h3>
+        <div class="producto" id="prod-1">
+          <img src="img/productos/poloMangaLarga.png" alt="poloRalphLauren" />
+          <a href="#" class="btn-producto">Ver Producto</a>
+        </div>
+        <div class="producto" id="prod-2">
+          <img
+            src="img/productos/chaquetaRalph.png"
+            alt="chaquetaRalphLauren"
+          />
+          <a href="#" class="btn-producto">Ver Producto</a>
+        </div>
+        <div class="producto" id="prod-3">
+          <img
+            src="img/productos/zapatillasRalph.png"
+            alt="zapatillasRalphLauren"
+          />
+          <a href="#" class="btn-producto">Ver Producto</a>
+        </div>
+        <div class="producto" id="prod-4">
+          <img
+            src="img/productos/accesoriosRalph.png"
+            alt="correaRalphLauren"
+          />
+          <a href="#" class="btn-producto">Ver Producto</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="video-contenido">
+      <video
+        src="video/videoMoncler.mp4"
+        autoplay
+        muted
+        loop
+        width="100%"
+      ></video>
+      <div class="capa">
+        <div class="capa-content">
+          <p>
+            Descubre la nueva colección de Moncler, elegancia y calidad en cada
+            detalle.
+          </p>
+          <a href="#moncler-products" class="btn">Ver productos Moncler</a>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <footer>
+      <div class="ventajasFooter">
+        <p class="titulo-footer">Nuestras ventajas</p>
+        <a href="#">Envios gratuitos</a>
+        <a href="#">Devoluciones gratuita</a>
+        <a href="#">Derecho de devolucion de 30 dias</a>
+      </div>
+
+      <div class="ayudaFooter">
+        <p class="titulo-footer">Ayuda y contacto</p>
+        <a href="#">Devolver un pedido</a>
+        <a href="#">Seguir tu pedido</a>
+        <a href="#">Información sobre entregas</a>
+      </div>
+
+      <div class="redesSociales">
+        <p class="titulo-footer">Nuestras redes sociales:</p>
+        <div class="iconos-redes">
+          <img
+            class="logo"
+            src="img/footer/redes/logoInstagram.png"
+            alt="Instagram"
+          />
+          <img
+            class="logo"
+            src="img/footer/redes/logoFacebook.png"
+            alt="Facebook"
+          />
+          <img class="logo" src="img/footer/redes/logoX.png" alt="X" />
+        </div>
+      </div>
+
+      <div class="infoContacto">
+        <article class="item-contacto">
+          <img src="img/footer/contacto/telefono.png" alt="Teléfono" />
+          <p>+34 000 000 000</p>
+        </article>
+        <article class="item-contacto">
+          <img src="img/footer/contacto/correoEectronico.png" alt="Email" />
+          <p>ejemplo@gmail.com</p>
+        </article>
+      </div>
+
+      <div class="marcasFooter">
+        <p class="titulo-footer">Nuestras marcas</p>
+        <div class="logos-marcas">
+          <img
+            class="logo"
+            src="img/footer/marcas/maison-margiela.png"
+            alt="maison-margiela"
+          />
+          <img
+            class="logo"
+            src="img/footer/marcas/Moncler_logo.png"
+            alt="Moncler"
+          />
+          <img
+            class="logo"
+            src="img/footer/marcas/Stone-Island.png"
+            alt="Stone-Island"
+          />
+          <img
+            class="logo"
+            src="img/footer/marcas/Tom-Ford.png"
+            alt="Tom-Ford"
+          />
+          <img
+            class="logo"
+            src="img/footer/marcas/jacquemus.png"
+            alt="jacquemus"
+          />
+          <img class="logo" src="img/footer/marcas/dior_logo.jpg" alt="" />
+          <img class="logo" src="img/footer/marcas/Rolex.png" alt="Rolex" />
+          <img class="logo" src="img/footer/marcas/seiko.png" alt="seiko" />
+          <img
+            class="logo"
+            src="img/footer/marcas/gallery_dept.webp"
+            alt="gallery_dept"
+          />
+          <img class="logo" src="img/footer/marcas/hermes.png" alt="hermes" />
+          <img
+            class="logo"
+            src="img/footer/marcas/emporio-armani.png"
+            alt="emporio-armani"
+          />
+          <img
+            class="logo"
+            src="img/footer/marcas/hugoboss.webp"
+            alt="hugoboss"
+          />
+          <img class="logo" src="img/footer/marcas/lv.png" alt="lv" />
+          <img
+            class="logo"
+            src="img/footer/marcas/ralph-lauren.png"
+            alt="ralph-lauren"
+          />
+          <img class="logo" src="img/footer/marcas/lacoste.png" alt="lacoste" />
+          <img
+            class="logo"
+            src="img/footer/marcas/underArmour-Mansory.png"
+            alt=""
+          />
+          <img class="logo" src="img/footer/marcas/d&g.png" alt="d&g" />
+          <img class="logo" src="img/footer/marcas/cartier.png" alt="cartier" />
+        </div>
+      </div>
+
+      <div class="payMetodsFooter">
+        <p class="titulo-footer">Nuestros métodos de pago:</p>
+        <div class="iconos-pago">
+          <img
+            class="logo"
+            src="img/footer/metodoPago/logoPaypal.png"
+            alt="Paypal"
+          />
+          <img
+            class="logo"
+            src="img/footer/metodoPago/logoVisa.png"
+            alt="Visa"
+          />
+          <img
+            class="logo"
+            src="img/footer/metodoPago/logoMastercard.png"
+            alt="Mastercard"
+          />
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

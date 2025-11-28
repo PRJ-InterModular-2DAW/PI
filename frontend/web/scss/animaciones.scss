@@ -1,0 +1,65 @@
+@use 'colores'; 
+
+/*Animacion bandera*/
+@keyframes slideBandera {
+    0%{
+        content: url('../img/header/iconoBanderaEspaña.png');
+    }
+    50%{
+        content:url('../img/header/iconoBanderaInglesa.png');
+    }
+    100%{
+        content: url('../img/header/iconoBanderaEspaña.png');
+    }
+}
+
+
+.header-right #logoBandera{
+    animation: slideBandera 10s infinite;
+}
+
+/*Animacion carrito*/
+
+@keyframes saltoCarrito {
+    0%{ 
+        transform: translateY(0px); 
+    }
+    
+    50%{ 
+        transform: translateY(0px); 
+    }
+    70%{ 
+        transform: translateY(-10px); 
+    }
+    
+    100%{ 
+        transform: translateY(0px); 
+    }
+}
+
+#carritoCompra{
+    animation-name: saltoCarrito; 
+    animation-duration: 0.8s; 
+    animation-timing-function: ease-in-out; 
+    animation-iteration-count: 3; 
+    
+}
+
+// Lista de elementos de nav y su retraso en segundos
+$nav-items-animation: (
+    nav-ropa: 0.5s,
+    nav-calzado: 0.7s,
+    nav-accesorios: 1s,
+    nav-relojes: 1.3s
+);
+
+// Bucle para aplicar la animación a los IDs con retrasos
+@each $item-id, $delay in $nav-items-animation {
+    ##{$item-id} { 
+        animation-delay: $delay;
+        animation-name: saltoCarrito; 
+        animation-duration: 0.8s; 
+        animation-timing-function: ease-in-out; 
+        animation-iteration-count: 1; 
+    }
+}

@@ -1,0 +1,47 @@
+@use 'colores';
+//Mixins para el header
+@mixin header-layout-3col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "header-left logo header-right";
+    padding: 10px 20px;
+}
+
+
+//Mixins para el body
+@mixin place-items-center {
+    display: grid;
+    place-items: center; 
+}
+
+@mixin button-style($padding, $border: 1px solid colores.$color-text) {
+    background-color: colores.$color-background-header;
+    color: colores.$color-text;
+    text-decoration: none;
+    padding: $padding;
+    font-weight: bold;
+    border-radius: 10px;
+    border: $border;
+    cursor: pointer;
+}
+
+@mixin product-image($height: 200px) {
+    width: 100%;
+    height: $height;
+    object-fit: cover;
+    border-radius: 20px;
+    background-color: colores.$color-background-body-slider-product;
+}
+
+//Mixins para el footer
+@mixin text-link-reset($color: colores.$color-text-footer) { 
+    color: $color; 
+    text-decoration: none;
+}
+
+@mixin footer-column-base($gap: 5px) {
+    display: grid;
+    gap: $gap;
+    align-content: start;
+}

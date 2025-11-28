@@ -1,120 +1,156 @@
 <?php
-// 1. CARREGAR LLIBRERIES (COMPOSER)
+// 1. CARGAR LIBRERÍAS (COMPOSER)
 require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
-// 2. CONFIGURACIÓ DE RUTES
+// 2. CONFIGURACIÓN DE RUTAS
 $uploadsDir = '/var/www/uploads/';
 $dataDir = '/var/www/data/';
 $jsonFilePath = $dataDir . 'db.json';
 
-// 3. VALIDAR I DESAR EL FITXER PUJAT
-// ------------------------------------
-
-// Comprovar si s'ha rebut un fitxer vàlid
+// 3. VALIDAR Y GUARDAR EL ARCHIVO SUBIDO
 if (empty($_FILES['excelFile']) || $_FILES['excelFile']['error'] !== UPLOAD_ERR_OK) {
-    die("Error: No s'ha rebut cap fitxer o hi ha hagut un error en la pujada.");
+    die("Error: No se ha recibido ningún archivo o hubo un error en la subida.");
 }
 
-// Donar un nom únic al fitxer per seguretat
 $fileExtension = strtolower(pathinfo($_FILES['excelFile']['name'], PATHINFO_EXTENSION));
 $uploadFilePath = $uploadsDir . uniqid('import_', true) . '.' . $fileExtension;
 
 if (!move_uploaded_file($_FILES['excelFile']['tmp_name'], $uploadFilePath)) {
-    die("Error: No s'ha pogut moure el fitxer a /uploads/. Verifica els permisos.");
+    die("Error: No se pudo mover el archivo a /uploads/. Verifica los permisos.");
 }
 
-// 4. LLEGIR L'EXCEL I PROCESSAR DADES
+// 4. CARGAR LA BASE DE DATOS COMPLETA (Para no borrar usuarios)
 // ------------------------------------
-$products = [];
+$dbData = [
+    'productes' => [],
+    'usuaris' => []
+];
+
+// Si existe el archivo, cargamos su contenido actual
+if (file_exists($jsonFilePath)) {
+    $jsonContent = file_get_contents($jsonFilePath);
+    $decoded = json_decode($jsonContent, true);
+    if (is_array($decoded)) {
+        $dbData = $decoded;
+    }
+}
+
+// Preparamos un mapa de productos actuales para buscar rápido por ID
+$currentProductsMap = [];
+if (!empty($dbData['productes']) && is_array($dbData['productes'])) {
+    foreach ($dbData['productes'] as $prod) {
+        if (isset($prod['id'])) {
+            $currentProductsMap[$prod['id']] = $prod;
+        }
+    }
+}
+
+// 5. LEER EL EXCEL Y PROCESAR (UPSERT)
+// ------------------------------------
+$importedCount = 0;
+$updatedCount = 0;
 $skippedCount = 0;
-// No fem servir $idCounter, ja que l'ID ve de l'Excel
 
 try {
     $spreadsheet = IOFactory::load($uploadFilePath);
     $rows = $spreadsheet->getActiveSheet()->toArray();
 
-    // Eliminar la primera fila (capçalera)
+    // Eliminar la primera fila (cabecera)
     array_shift($rows);
 
     foreach ($rows as $row) {
-
-        // ---- ÍNDEXS CORREGITS SEGONS EL TEU EXCEL ----
-        // Columna A (índex 0): id
-        // Columna B (índex 1): nombre
-        // Columna C (índex 2): descripcion
-        // Columna D (índex 3): precio
-        // Columna E (índex 4): stock
-
+        // A(0): id, B(1): nombre, C(2): descripcion, D(3): precio, E(4): stock
         $id_excel = trim($row[0] ?? '');
         $nom = trim($row[1] ?? '');
         $descripcio = trim($row[2] ?? '');
-        $preu_brut = trim($row[3] ?? ''); // Agafem l'índex 3 (Col D)
-        $estoc = trim($row[4] ?? '');     // Agafem l'índex 4 (Col E)
+        $preu_brut = trim($row[3] ?? '');
+        $estoc = trim($row[4] ?? '');
 
-        // ---- NETEJA DEL PREU ----
-        // Treure el símbol '€' i espais
+        // Limpieza de precio
         $preu_net = str_replace(['€', ' '], '', $preu_brut);
-        // Canviar la coma decimal (si n'hi ha) per un punt
         $preu = str_replace(',', '.', $preu_net);
 
-        // ---- VALIDACIÓ CORREGIDA ----
-        if (empty($nom) || !is_numeric($preu) || !is_numeric($estoc)) {
+        // Validación básica
+        if (empty($id_excel) || empty($nom) || !is_numeric($preu) || !is_numeric($estoc)) {
             $skippedCount++;
-            continue; // Ignora aquesta fila i segueix
+            continue;
         }
 
-        // Si tot és correcte, afegeix el producte
-        // (Fem servir els noms de camp del teu JSON Server: nom, descripcio, preu, estoc)
-        $products[] = [
-            'id' => (int) $id_excel, // Agafem l'ID de l'Excel
-            'sku' => 'SKU-' . $id_excel, // Creem un SKU a partir de l'ID
+        $id = (int) $id_excel;
+        $isUpdate = isset($currentProductsMap[$id]);
+
+        // Datos del producto
+        $newProductData = [
+            'id' => $id,
+            'sku' => 'SKU-' . $id,
             'nom' => $nom,
             'descripcio' => $descripcio,
             'preu' => (float) $preu,
             'estoc' => (int) $estoc
         ];
+
+        // Guardamos/Sobrescribimos en el mapa temporal
+        $currentProductsMap[$id] = $newProductData;
+
+        if ($isUpdate) {
+            $updatedCount++;
+        } else {
+            $importedCount++;
+        }
     }
+
 } catch (Exception $e) {
-    die("Error en llegir el fitxer Excel: " . $e->getMessage());
+    die("Error al leer el archivo Excel: " . $e->getMessage());
 }
-// 5. GENERAR L'ARXIU JSON
+
+// 6. ACTUALIZAR EL ARRAY PRINCIPAL Y GUARDAR
 // -------------------------
-// (Versió simple: sense còpia de seguretat)
-$jsonData = ['productes' => $products];
-$jsonContent = json_encode($jsonData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+// Convertimos el mapa de productos de nuevo a una lista indexada
+$dbData['productes'] = array_values($currentProductsMap);
+
+// ¡IMPORTANTE! Aquí $dbData contiene tanto 'productes' (actualizados) como 'usuaris' (intactos)
+$jsonContent = json_encode($dbData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 if (file_put_contents($jsonFilePath, $jsonContent) === false) {
-    die("Error: No s'ha pogut escriure a /data/products.json. Verifica els permisos.");
+    die("Error: No se pudo escribir en /data/db.json. Verifica permisos.");
 }
 
-// 6. MOSTRAR RESULTAT (HTML SIMPLE)
-// ----------------------------------
-$importedCount = count($products);
+// 7. MOSTRAR RESULTADO
 ?>
 
 <!DOCTYPE html>
-<html lang="ca">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Resultat d'Importació</title>
+    <title>Resultado de Importación</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; text-align: center; }
+        .card { border: 1px solid #ddd; padding: 20px; max-width: 500px; margin: 0 auto; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; }
+        .stats { text-align: left; margin: 20px 0; }
+        .btn { display: inline-block; padding: 10px 20px; background-color: #3498db; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+        .btn:hover { background-color: #2980b9; }
+    </style>
 </head>
-
-<body style="font-family: sans-serif; margin: 20px;">
-    <h1>✅ Importació Completada</h1>
-    <p>S'han importat <strong><?php echo $importedCount; ?></strong> productes.</p>
-    <p>S'han ignorat <strong><?php echo $skippedCount; ?></strong> files amb errors o dades incompletes.</p>
-    <hr>
-    <p>
-        Pots veure el resultat a l'API:
-        <a href="http://localhost:3001/productes" target="_blank">
-            http://localhost:3001/productes
-        </a>
-    </p>
-    <p>
-        <a href="/importar.html">Tornar al formulari</a>
-    </p>
+<body>
+    <div class="card">
+        <h1>✅ Importación Exitosa</h1>
+        <p>La base de datos de usuarios se ha mantenido intacta.</p>
+        <div class="stats">
+            <p>🆕 Nuevos productos: <strong><?php echo $importedCount; ?></strong></p>
+            <p>🔄 Productos actualizados: <strong><?php echo $updatedCount; ?></strong></p>
+            <p>⚠️ Filas ignoradas: <strong><?php echo $skippedCount; ?></strong></p>
+            <hr>
+            <p>📦 Total productos: <strong><?php echo count($dbData['productes']); ?></strong></p>
+            <p>👥 Total usuarios: <strong><?php echo count($dbData['usuaris'] ?? []); ?></strong></p>
+        </div>
+        
+        <p>Puedes verificar la API:</p>
+        <a href="http://localhost:3001/productes" target="_blank">http://localhost:3001/productes</a>
+        <br><br>
+        <a href="/importar.html" class="btn">Volver al formulario</a>
+    </div>
 </body>
-
 </html>
