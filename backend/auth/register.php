@@ -71,50 +71,87 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="ca">
-
 <head>
     <meta charset="UTF-8">
-    <title>Registre d'Usuari</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registre - L&SSHOP</title>
+    <!-- Fuente Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Enlace al CSS -->
+    <link rel="stylesheet" href="../../web/css/login-style.css">
 </head>
-
 <body>
-    <h1>1. Registre d'usuari</h1>
 
-    <?php if ($missatge): ?>
-        <p style="color: green; font-weight: bold;"><?= htmlspecialchars($missatge) ?></p>
-    <?php endif; ?>
+    <div class="overlay"></div>
 
-    <?php if (!empty($errores)): ?>
-        <h3 style="color: red;">S'han trobat els següents errors:</h3>
-        <ul>
-            <?php foreach ($errores as $error): ?>
-                <li style="color: red;"><?= htmlspecialchars($error) ?></li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
+    <div class="login-card">
+        <h2 class="login-title">Entra en <span class="brand-thin">L&</span><span class="brand-bold">SS</span>HOP</h2>
 
-    <form method="POST" action="register.php">
-        <label for="nom_usuari">Nom d'usuari:</label><br>
-        <input type="text" id="nom_usuari" name="nom_usuari" value="<?= htmlspecialchars($nomUsuari ?? '') ?>"
-            required><br><br>
+        <div class="auth-tabs">
+            <a href="login.php" class="tab">Iniciar sesión</a>
+            <a href="#" class="tab active">Registrarte</a>
+        </div>
 
-        <label for="contrasenya">Contrasenya:</label><br>
-        <input type="password" id="contrasenya" name="contrasenya" required><br><br>
+        <?php if ($missatge): ?>
+            <div class="success-msg">
+                <p><i class="fas fa-check-circle"></i> <?= htmlspecialchars($missatge) ?></p>
+            </div>
+        <?php endif; ?>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" value="<?= htmlspecialchars($email ?? '') ?>" required><br><br>
+        <?php if (!empty($errores)): ?>
+            <div class="error-msg">
+                <?php foreach ($errores as $error): ?>
+                    <p><i class="fas fa-exclamation-circle"></i> <?= htmlspecialchars($error) ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
 
-        <label for="nom">Nom (Opcional):</label><br>
-        <input type="text" id="nom" name="nom" value="<?= htmlspecialchars($nom ?? '') ?>"><br><br>
+        <form method="POST" action="register.php" class="login-form">
+            <div class="form-group">
+                <label for="nom_usuari">Nom d'usuari</label>
+                <input type="text" id="nom_usuari" name="nom_usuari" class="form-input" value="<?= htmlspecialchars($nomUsuari ?? '') ?>" required>
+            </div>
 
-        <label for="cognoms">Cognoms (Opcional):</label><br>
-        <input type="text" id="cognoms" name="cognoms" value="<?= htmlspecialchars($cognoms ?? '') ?>"><br><br>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-input" value="<?= htmlspecialchars($email ?? '') ?>" required>
+            </div>
 
-        <button type="submit">Registrar-se</button>
-    </form>
+            <div class="form-group">
+                <label for="contrasenya">Contrasenya</label>
+                <input type="password" id="contrasenya" name="contrasenya" class="form-input" required>
+            </div>
 
-    <hr>
-    <p>Ja tens un compte? <a href="login.php">Inicia sessió aquí</a>.</p>
+            <div class="form-group">
+                <label for="nom">Nom (Opcional)</label>
+                <input type="text" id="nom" name="nom" class="form-input" value="<?= htmlspecialchars($nom ?? '') ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="cognoms">Cognoms (Opcional)</label>
+                <input type="text" id="cognoms" name="cognoms" class="form-input" value="<?= htmlspecialchars($cognoms ?? '') ?>">
+            </div>
+
+            <button type="submit" class="btn-submit">Registrar-se</button>
+        </form>
+
+        <div class="separator">
+            <span>o</span>
+        </div>
+
+        <div class="social-login">
+            <button class="btn-social google">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
+                Google
+            </button>
+            <button class="btn-social apple">
+                <i class="fab fa-apple"></i>
+                Apple
+            </button>
+        </div>
+    </div>
+
 </body>
-
 </html>
