@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/login-style.css" />
   </head>
 
   <body>
@@ -276,5 +277,133 @@
         </div>
       </div>
     </footer>
-  </body>
+    <!-- Modal Login/Register -->
+    <div class="modal-overlay" id="authModal">
+        <div class="login-card">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 class="login-title">Entra en <span class="brand-thin">L&</span><span class="brand-bold">SS</span>HOP</h2>
+
+            <div class="auth-tabs">
+                <a href="#" class="tab active" id="tabLogin">Iniciar sesión</a>
+                <a href="#" class="tab" id="tabRegister">Registrarte</a>
+            </div>
+
+            <!-- Login Form -->
+            <div class="form-content active" id="formLogin">
+                <form method="POST" action="../../backend/auth/login.php" class="login-form">
+                    <div class="form-group">
+                        <label for="login_nom_usuari">Correo electrónico</label>
+                        <input type="text" id="login_nom_usuari" name="nom_usuari" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login_contrasenya">Contraseña</label>
+                        <input type="password" id="login_contrasenya" name="contrasenya" class="form-input" required>
+                    </div>
+
+                    <a href="#" class="forgot-pass">¿Has olvidado tu contraseña?</a>
+
+                    <button type="submit" class="btn-submit">Iniciar sesión</button>
+                </form>
+            </div>
+
+            <!-- Register Form -->
+            <div class="form-content" id="formRegister">
+                <form method="POST" action="../../backend/auth/register.php" class="login-form">
+                    <div class="form-group">
+                        <label for="reg_nom_usuari">Nom d'usuari</label>
+                        <input type="text" id="reg_nom_usuari" name="nom_usuari" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg_email">Email</label>
+                        <input type="email" id="reg_email" name="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg_contrasenya">Contrasenya</label>
+                        <input type="password" id="reg_contrasenya" name="contrasenya" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg_nom">Nom (Opcional)</label>
+                        <input type="text" id="reg_nom" name="nom" class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg_cognoms">Cognoms (Opcional)</label>
+                        <input type="text" id="reg_cognoms" name="cognoms" class="form-input">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Registrar-se</button>
+                </form>
+            </div>
+
+            <div class="separator">
+                <span>o</span>
+            </div>
+
+            <div class="social-login">
+                <button class="btn-social google">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
+                    Google
+                </button>
+                <button class="btn-social apple">
+                    <i class="fab fa-apple"></i>
+                    Apple
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Logic
+        const modal = document.getElementById('authModal');
+        const openBtn = document.querySelector('a[href="../../backend/auth/login.php"]'); // Select the profile link
+        const closeBtn = document.getElementById('closeModal');
+        const tabLogin = document.getElementById('tabLogin');
+        const tabRegister = document.getElementById('tabRegister');
+        const formLogin = document.getElementById('formLogin');
+        const formRegister = document.getElementById('formRegister');
+
+        // Prevent default link behavior and open modal
+        if (openBtn) {
+            openBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+            });
+        }
+
+        // Close modal
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+        }
+
+        // Close on click outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Tab switching
+        tabLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            tabLogin.classList.add('active');
+            tabRegister.classList.remove('active');
+            formLogin.classList.add('active');
+            formRegister.classList.remove('active');
+        });
+
+        tabRegister.addEventListener('click', (e) => {
+            e.preventDefault();
+            tabRegister.classList.add('active');
+            tabLogin.classList.remove('active');
+            formRegister.classList.add('active');
+            formLogin.classList.remove('active');
+        });
+    </script>
+</body>
 </html>
