@@ -1,13 +1,13 @@
-@use 'colores'; 
+@use 'colores';
 @use 'mixins';
 
 // Lista de elementos de navegación para iterar: (id_html: grid-area)
 $nav-items: (
-    novedades: novedades,
-    ropa: ropa,
-    calzado: calzado,
-    accesorios: accesorios,
-    relojes: relojes
+  novedades: novedades,
+  ropa: ropa,
+  calzado: calzado,
+  accesorios: accesorios,
+  relojes: relojes
 );
 
 header {
@@ -17,12 +17,12 @@ header {
   font-weight: bold;
   text-decoration: none;
 
-  .header-left { 
+  .header-left {
     grid-area: header-left;
     margin-left: 30px;
     margin-top: 2%;
 
-    p a { 
+    p a {
       color: colores.$color-text;
       text-decoration: none;
       margin-right: 50px;
@@ -32,10 +32,10 @@ header {
     }
   }
 
-  .header-right { 
+  .header-right {
     grid-area: header-right;
 
-    img { 
+    img {
       margin-right: 20px;
       margin-top: 4%;
       float: right;
@@ -52,13 +52,13 @@ header {
     justify-self: center;
     width: 300px;
   }
-  
+
 
 }
 
 /*--------------- APARTADO DEL NAVEGADOR (OPTIMIZADO) ---------------*/
 
-nav { 
+nav {
   display: grid;
   grid-template-areas: "novedades ropa calzado accesorios relojes buscador";
   grid-template-columns: repeat(5, auto) 1fr;
@@ -84,30 +84,56 @@ nav {
 
   // Bucle @each para asignar grid-area a los elementos
   @each $item-id, $area-name in $nav-items {
-    ##{$item-id} { 
+    ##{$item-id} {
       grid-area: $area-name;
-      
+
       // Condicional @if: Caso especial para el borde de 'novedades'
-      @if $item-id == novedades {
-          border-right: solid 2px colores.$color-text;
-          padding-right: 15px;
+      @if $item-id ==novedades {
+        border-right: solid 2px colores.$color-text;
+        padding-right: 15px;
       }
     }
   }
 
-  #buscador { 
+  #buscador {
     grid-area: buscador;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 15px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:hover,
+    &:focus-within {
+      border-color: colores.$color-text; // Assuming this is a dark color, or use specific color
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
 
     img {
-      width: 16px;
-      margin-right: 5px;
-      margin-top: 2px;
+      width: 18px;
+      margin-right: 10px;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover img,
+    &:focus-within img {
+      opacity: 1;
     }
 
     .input-buscador {
       border: none;
-      border-bottom: solid 1px colores.$color-text;
+      background: transparent;
       outline: none;
+      width: 100%;
+      font-family: inherit;
+      font-size: 14px;
+      color: colores.$color-text;
     }
   }
 
