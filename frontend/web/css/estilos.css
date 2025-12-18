@@ -22,16 +22,16 @@ header {
 }
 header .header-left {
   grid-area: header-left;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
   margin-left: 30px;
-  margin-top: 2%;
 }
-header .header-left p a {
+header .header-left a {
   color: #000;
   text-decoration: none;
-  margin-right: 50px;
-  margin-top: 4%;
-  justify-self: start;
-  float: left;
 }
 header .header-right {
   grid-area: header-right;
@@ -58,12 +58,13 @@ nav {
   grid-template-columns: repeat(5, auto) 1fr;
   column-gap: 3px;
   background-color: #fff;
-  padding: 0.3% 0%;
+  padding: 5px 0; /* Adjusted padding */
   width: 100%;
-  height: 30px;
+  /* height: 30px; REMOVED to allow content to fit */
   border-bottom: solid 1px #000;
   border-top: solid 1px #000;
   font-weight: bold;
+  align-items: center; /* Center items vertically */
 }
 nav a {
   color: #000;
@@ -99,8 +100,10 @@ nav #buscador {
   padding: 5px 15px;
   background-color: #f9f9f9;
   transition: all 0.3s ease;
-  width: 100%;
+  width: 200px; /* Fixed width as requested implicitly */
   box-sizing: border-box;
+  justify-self: end; /* Align to the right end of the container */
+  margin-right: 10px; /* Little margin from edge */
 }
 nav #buscador:hover, nav #buscador:focus-within {
   border-color: #000;
@@ -125,8 +128,12 @@ nav #buscador .input-buscador {
   font-size: 14px;
   color: #000;
 }
+nav {
+  /* .nav-item-rigth class is no longer strictly needed for width if #buscador handles it, 
+     but keeping it for structure if needed */
+}
 nav .nav-item-rigth {
-  width: 200px;
+  /* width: 200px; handled by #buscador */
   justify-self: end;
 }
 
@@ -377,13 +384,13 @@ footer .marcasFooter .logos-marcas img {
   border-radius: 10px;
 }
 
-.header-left p a {
+.header-left a {
   display: inline-block;
   transition: transform 0.3s ease, background-color 0.3s ease;
   padding: 5px 10px;
   border-radius: 8px;
 }
-.header-left p a:hover {
+.header-left a:hover {
   transform: scale(1.1);
   background-color: #9196ae;
   cursor: pointer;
@@ -500,6 +507,44 @@ footer .marcasFooter .logos-marcas img {
   animation-duration: 0.8s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.slider .carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.slider .slider-container {
+  position: relative;
+}
+.slider .img-flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  width: 50px;
+  transition: opacity 0.3s;
+}
+.slider .img-flecha.derecha {
+  right: 5%;
+}
+.slider .img-flecha.izquierda {
+  left: 5%;
+  transform: translateY(-50%) rotate(180deg);
+}
+.slider .img-pageControl {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 100px;
 }
 
 /*# sourceMappingURL=estilos.css.map */

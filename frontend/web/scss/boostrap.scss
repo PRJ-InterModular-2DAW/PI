@@ -1,0 +1,45 @@
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  .carousel-item {
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  .slider-container {
+    position: relative;
+  }
+
+  .img-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    width: 50px;
+    transition: opacity 0.3s;
+
+    &.derecha {
+      right: 5%;
+    }
+
+    &.izquierda {
+      left: 5%;
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+
+  .img-pageControl {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 100px;
+  }
+}
