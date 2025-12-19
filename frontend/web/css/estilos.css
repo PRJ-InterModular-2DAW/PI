@@ -170,11 +170,17 @@ nav .mobile-extra {
 }
 .slider-container .img-flecha {
   position: absolute;
-  top: 150px;
-  left: 98%;
-  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 40px;
   cursor: pointer;
+  z-index: 10;
+}
+.slider-container .img-flecha#flechaIzquierda {
+  left: 20px;
+}
+.slider-container .img-flecha#flechaDerecha {
+  right: 20px;
 }
 .slider-container .img-pageControl {
   position: absolute;
@@ -604,9 +610,7 @@ footer .marcasFooter .logos-marcas img {
     padding: 10px 0;
   }
   nav #novedades {
-    border-right: solid 2px #000;
-    padding-right: 15px;
-    width: auto;
+    display: none;
   }
   nav #buscador {
     width: auto;
@@ -620,9 +624,8 @@ footer .marcasFooter .logos-marcas img {
     height: 200px;
   }
   .slider-container .img-flecha {
-    width: 30px;
-    top: 100px;
-    left: 95%;
+    width: 30px !important;
+    top: 50% !important;
   }
   .slider-container .img-pageControl {
     width: 50px;

@@ -1,4 +1,4 @@
-@use 'colores'; 
+@use 'colores';
 @use 'mixins';
 
 .slider {
@@ -25,11 +25,19 @@
 
   .img-flecha {
     position: absolute;
-    top: 150px;
-    left: 98%;
-    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 40px;
     cursor: pointer;
+    z-index: 10;
+
+    &#flechaIzquierda {
+      left: 20px;
+    }
+
+    &#flechaDerecha {
+      right: 20px;
+    }
   }
 
   .img-pageControl {
@@ -81,18 +89,18 @@
       transition: filter 0.3s ease, transform 0.3s ease;
     }
 
-    .btn-producto { 
+    .btn-producto {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
-      
-      @include mixins.button-style(10px 20px); 
+
+      @include mixins.button-style(10px 20px);
 
       opacity: 0;
       bottom: -20px;
 
-      transition: opacity 0.3s ease, bottom 0.3s ease; 
+      transition: opacity 0.3s ease, bottom 0.3s ease;
     }
   }
 }

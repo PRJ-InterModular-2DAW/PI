@@ -67,9 +67,7 @@
         }
 
         #novedades {
-            border-right: solid 2px colores.$color-text;
-            padding-right: 15px;
-            width: auto;
+            display: none;
         }
 
         #buscador {
@@ -88,9 +86,8 @@
         }
 
         .img-flecha {
-            width: 30px;
-            top: 100px;
-            left: 95%;
+            width: 30px !important;
+            top: 50% !important;
         }
 
         .img-pageControl {
