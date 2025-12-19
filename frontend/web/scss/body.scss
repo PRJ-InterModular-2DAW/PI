@@ -140,12 +140,18 @@
     p {
       font-size: 20px;
       margin-bottom: 20px;
+      color: colores.$color-text-footer;
     }
-  }
-}
 
-/* Estilo del botón */
-.btn {
-  @include mixins.button-style(10px 20px);
-  transition: background-color 0.3s ease;
+    .btn {
+      @include mixins.button-style(10px 20px);
+      transition: background-color 0.3s ease;
+      background-color: colores.$color-background-header;
+    }
+
+    .btn:hover{
+      color: colores.$color-text-footer;
+      background-color: colores.$color-background-capaVideo;
+    }
+}
 }

@@ -280,10 +280,9 @@ nav .mobile-extra {
 .video-contenido .capa p {
   font-size: 20px;
   margin-bottom: 20px;
+  color: #fff;
 }
-
-/* Estilo del botón */
-.btn {
+.video-contenido .capa .btn {
   background-color: #fff1cf;
   color: #000;
   text-decoration: none;
@@ -293,6 +292,11 @@ nav .mobile-extra {
   border: 1px solid #000;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  background-color: #fff1cf;
+}
+.video-contenido .capa .btn:hover {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 footer {
@@ -647,13 +651,23 @@ footer .marcasFooter .logos-marcas img {
     font-size: 12px;
     padding: 8px 15px;
   }
+  .video-contenido .capa {
+    display: grid;
+    place-items: center;
+  }
   .video-contenido .capa p {
     font-size: 16px;
     margin-bottom: 15px;
+    color: #fff;
   }
   .video-contenido .capa .btn {
     font-size: 12px;
     padding: 8px 15px;
+    background-color: #fff1cf;
+  }
+  .video-contenido .capa .btn:hover {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
   }
   footer {
     grid-template-columns: 1fr;
