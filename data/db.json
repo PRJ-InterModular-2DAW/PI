@@ -54,11 +54,38 @@
     {
       "id": "2",
       "nom_usuari": "adam",
-      "contrasenya": "$2y$10$KDDJXlWKXr2WKAPU39Ls3eysl.tyEKP1MJ.UjO/z4zEk2.qUFioNa",
+      "contrasenya": "$2y$10$qPZRgIsrS45VAVNwuq5SQ.WS/BmcNrKiKQeWoSmdokYmZ01MmZ726",
       "email": "adamakloul@icloud.com",
       "nom": "Adam",
       "cognoms": "Aaloul",
       "data_registre": "2025-12-19T15:36:57+00:00"
+    },
+    {
+      "id": "3",
+      "nom_usuari": "kevin",
+      "contrasenya": "$2y$10$xGT5Rxl4gWRdUEwinX70iO37PCK7bZ0FGL89NvVmxgh0dRbW7w9Ea",
+      "email": "kevintolsa@gmail.com",
+      "nom": "Kevin",
+      "cognoms": "Tolsa",
+      "data_registre": "2025-11-27T16:05:02+00:00"
+    },
+    {
+      "id": "4",
+      "nom_usuari": "albert",
+      "contrasenya": "$2y$10$61i/bXLYWkpK65ACxdRakOlC9pngD8xMhiAwTUdSvPxmekM13AmLu",
+      "email": "adamakloul@icloud.com",
+      "nom": "Albert",
+      "cognoms": "Danga",
+      "data_registre": "2025-11-27T19:18:55+00:00"
+    },
+    {
+      "id": "5",
+      "nom_usuari": "kevin2",
+      "contrasenya": "$2y$10$X0npNrMQovUnuvumzfRbnupF2UV7PADu4PauJVmSk9C.0MgZrw8YO",
+      "email": "judoka225@gmail.com",
+      "nom": "kevin",
+      "cognoms": "Tolsa",
+      "data_registre": "2025-12-19T15:08:45+00:00"
     }
   ]
 }

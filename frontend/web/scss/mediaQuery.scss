@@ -2,6 +2,7 @@
 @use 'header';
 @use 'body';
 @use 'footer';
+@use 'mixins';
 
 //Estilos tamaño mobile
 @media (max-width: 768px) {
@@ -67,9 +68,7 @@
         }
 
         #novedades {
-            border-right: solid 2px colores.$color-text;
-            padding-right: 15px;
-            width: auto;
+            display: none;
         }
 
         #buscador {
@@ -88,9 +87,8 @@
         }
 
         .img-flecha {
-            width: 30px;
-            top: 100px;
-            left: 95%;
+            width: 30px !important;
+            top: 50% !important;
         }
 
         .img-pageControl {
@@ -126,14 +124,23 @@
     // VIDEO: Ajustar texto
     .video-contenido {
         .capa {
+            @include mixins.place-items-center;
+
             p {
                 font-size: 16px;
                 margin-bottom: 15px;
+                color: colores.$color-text-footer;
             }
 
             .btn {
                 font-size: 12px;
                 padding: 8px 15px;
+                background-color: colores.$color-background-header;
+            }
+
+            .btn:hover{
+                color: colores.$color-text-footer;
+                background-color: colores.$color-background-capaVideo;
             }
         }
     }
