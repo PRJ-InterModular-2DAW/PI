@@ -1,413 +1,588 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L&SSHOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/estilos.css?v=1" />
+    <link rel="stylesheet" href="css/login-style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>L&SSHOP</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/estilos.css?v=1" />
-  <link rel="stylesheet" href="css/login-style.css" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-</head>
-
-<body>
-  <header>
-    <div class="header-left">
-      <a class="filtroSexo" href="#">Mujer</a>
-      <a class="filtroSexo" href="#">Hombre</a>
-    </div>
-
-    <img src="img/header/logo.png" class="logo" alt="Logo L&SSHOP" />
-
-    <div class="header-right">
-      <img src="img/header/iconoCarritos.png" class="icon" id="carritoCompra" alt="Carrito de compra" />
-
-      <img src="img/header/iconoFavoritos.png" class="icon" alt="Favoritos" />
-
-      <a href="../../backend/auth/login.php">
-        <img src="img/header/iconoPerfil.png" class="icon" alt="Perfil de usuario" />
-      </a>
-
-      <img src="img/header/iconoBanderaEspaña.png" class="icon" alt="Bandera de España" />
-    </div>
-
-    <!-- Menú Hamburger (Mobile) -->
-    <div class="hamburger-btn" id="hamburgerBtn" style="display: none;">
-      <img src="https://cdn-icons-png.flaticon.com/512/7216/7216128.png" style="width: 30px; cursor: pointer;"
-        alt="Menu">
-    </div>
-  </header>
-
-  <nav>
-    <div class="nav-item" id="novedades">
-      <a href="#">NOVEDADES</a>
-    </div>
-    <div class="nav-item" id="nav-ropa">
-      <a href="#">Ropa</a>
-    </div>
-    <div class="nav-item" id="nav-calzado">
-      <a href="#">Calzado</a>
-    </div>
-    <div class="nav-item" id="nav-accesorios">
-      <a href="#">Accesorios</a>
-    </div>
-    <div class="nav-item" id="nav-relojes">
-      <a href="#">Relojes</a>
-    </div>
-
-    <!-- Elementos extra para móvil (ocultos en PC) -->
-    <div class="nav-item mobile-extra" id="nav-idioma">
-      <a href="#">Idioma (ES)</a>
-    </div>
-    <div class="nav-item mobile-extra" id="nav-perfil">
-      <a href="../../backend/auth/login.php">Iniciar Sesión</a>
-    </div>
-    <div class="nav-item mobile-extra" id="nav-favoritos">
-      <a href="#">Favoritos</a>
-    </div>
-    <div class="nav-item mobile-extra" id="nav-carrito">
-      <a href="#">Carrito</a>
-    </div>
-
-    <div class="nav-item-rigth" id="buscador">
-      <img src="img/nav/iconoBuscar.png" alt="Buscar" />
-      <input type="text" placeholder="Buscar . . ." class="input-buscador" />
-    </div>
-  </nav>
-
-  <section class="slider">
-    <div class="slider-container" style="position: relative">
-      <!-- Bootstrap Carousel -->
-      <div id="carouselExample" class="carousel slide" data-bs-interval="false">
-        <div class="carousel-inner" style="border-radius: 20px">
-          <div class="carousel-item active">
-            <img src="img/carruselPrincipal/stone.jpg" class="d-block w-100 img-slider" alt="stoneIsland"
-              style="margin: 0; width: 100%" />
-          </div>
-          <div class="carousel-item">
-            <img src="img/carruselPrincipal/stone.jpg" class="d-block w-100 img-slider" alt="stoneIsland"
-              style="margin: 0; width: 100%" />
-          </div>
-          <div class="carousel-item">
-            <img src="img/carruselPrincipal/stone.jpg" class="d-block w-100 img-slider" alt="stoneIsland"
-              style="margin: 0; width: 100%" />
-          </div>
-        </div>
+  <body>
+    <header>
+      <div class="header-left">
+        <a class="filtroSexo" href="#">Mujer</a>
+        <a class="filtroSexo" href="#">Hombre</a>
       </div>
 
-      <!-- Inicio Controles Personalizados (Superpuestos) -->
-      <!-- PageControl: Centrado abajo -->
-      <img src="img/carruselPrincipal/pageControl.png" alt="pageControl" class="img-pageControl" id="pageControl" />
+      <img src="img/header/logo.png" class="logo" alt="Logo L&SSHOP" />
 
-      <!-- Flecha Izquierda (Inicialmente Oculta para la Diapositiva 1) -->
-      <img src="img/carruselPrincipal/flecha.png" alt="flecha izquierda" class="img-flecha" id="flechaIzquierda" style="
+      <div class="header-right">
+        <img
+          src="img/header/iconoCarritos.png"
+          class="icon"
+          id="carritoCompra"
+          alt="Carrito de compra"
+        />
+
+        <img src="img/header/iconoFavoritos.png" class="icon" alt="Favoritos" />
+
+        <a href="../../backend/auth/login.php">
+          <img
+            src="img/header/iconoPerfil.png"
+            class="icon"
+            alt="Perfil de usuario"
+          />
+        </a>
+
+        <img
+          src="img/header/iconoBanderaEspaña.png"
+          class="icon"
+          alt="Bandera de España"
+        />
+      </div>
+
+      <!-- Menú Hamburger (Mobile) -->
+      <div class="hamburger-btn" id="hamburgerBtn" style="display: none">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/7216/7216128.png"
+          style="width: 30px; cursor: pointer"
+          alt="Menu"
+        />
+      </div>
+    </header>
+
+    <nav>
+      <div class="nav-item" id="novedades">
+        <a href="#">NOVEDADES</a>
+      </div>
+      <div class="nav-item" id="nav-ropa">
+        <a href="#">Ropa</a>
+      </div>
+      <div class="nav-item" id="nav-calzado">
+        <a href="#">Calzado</a>
+      </div>
+      <div class="nav-item" id="nav-accesorios">
+        <a href="#">Accesorios</a>
+      </div>
+      <div class="nav-item" id="nav-relojes">
+        <a href="#">Relojes</a>
+      </div>
+
+      <!-- Elementos extra para móvil (ocultos en PC) -->
+      <div class="nav-item mobile-extra" id="nav-idioma">
+        <a href="#">Idioma (ES)</a>
+      </div>
+      <div class="nav-item mobile-extra" id="nav-perfil">
+        <a href="../../backend/auth/login.php">Iniciar Sesión</a>
+      </div>
+      <div class="nav-item mobile-extra" id="nav-favoritos">
+        <a href="#">Favoritos</a>
+      </div>
+      <div class="nav-item mobile-extra" id="nav-carrito">
+        <a href="#">Carrito</a>
+      </div>
+
+      <div class="nav-item-rigth" id="buscador">
+        <img src="img/nav/iconoBuscar.png" alt="Buscar" />
+        <input type="text" placeholder="Buscar . . ." class="input-buscador" />
+      </div>
+    </nav>
+
+    <section class="slider">
+      <div class="slider-container" style="position: relative">
+        <!-- Bootstrap Carousel -->
+        <div
+          id="carouselExample"
+          class="carousel slide"
+          data-bs-interval="false"
+        >
+          <div class="carousel-inner" style="border-radius: 20px">
+            <div class="carousel-item active">
+              <img
+                src="img/carruselPrincipal/stone.jpg"
+                class="d-block w-100 img-slider"
+                alt="stoneIsland"
+                style="margin: 0; width: 100%"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/carruselPrincipal/stone.jpg"
+                class="d-block w-100 img-slider"
+                alt="stoneIsland"
+                style="margin: 0; width: 100%"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/carruselPrincipal/stone.jpg"
+                class="d-block w-100 img-slider"
+                alt="stoneIsland"
+                style="margin: 0; width: 100%"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Inicio Controles Personalizados (Superpuestos) -->
+        <!-- PageControl: Centrado abajo -->
+        <img
+          src="img/carruselPrincipal/pageControl.png"
+          alt="pageControl"
+          class="img-pageControl"
+          id="pageControl"
+        />
+
+        <!-- Flecha Izquierda (Inicialmente Oculta para la Diapositiva 1) -->
+        <img
+          src="img/carruselPrincipal/flecha.png"
+          alt="flecha izquierda"
+          class="img-flecha"
+          id="flechaIzquierda"
+          style="
             left: 20px;
             right: auto;
             transform: translateY(-50%) rotate(180deg);
             display: none;
             top: 50%;
             width: 40px;
-          " />
+          "
+        />
 
-      <!-- Flecha Derecha -->
-      <img src="img/carruselPrincipal/flecha.png" alt="flecha derecha" class="img-flecha" id="flechaDerecha" style="
+        <!-- Flecha Derecha -->
+        <img
+          src="img/carruselPrincipal/flecha.png"
+          alt="flecha derecha"
+          class="img-flecha"
+          id="flechaDerecha"
+          style="
             left: auto;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
             width: 40px;
-          " />
-    </div>
-  </section>
-
-  <section class="inicioProducts">
-    <article>
-      <h3 class="tituloProductos">RALPH LAUREN</h3>
-      <div class="producto" id="prod-1">
-        <img src="img/productos/poloMangaLarga.png" alt="poloRalphLauren" />
-        <a href="#" class="btn-producto">Ver Producto</a>
+          "
+        />
       </div>
-      <div class="producto" id="prod-2">
-        <img src="img/productos/chaquetaRalph.png" alt="chaquetaRalphLauren" />
-        <a href="#" class="btn-producto">Ver Producto</a>
-      </div>
-      <div class="producto" id="prod-3">
-        <img src="img/productos/zapatillasRalph.png" alt="zapatillasRalphLauren" />
-        <a href="#" class="btn-producto">Ver Producto</a>
-      </div>
-      <div class="producto" id="prod-4">
-        <img src="img/productos/accesoriosRalph.png" alt="correaRalphLauren" />
-        <a href="#" class="btn-producto">Ver Producto</a>
-      </div>
-    </article>
-  </section>
+    </section>
 
-  <section class="video-contenido">
-    <video src="video/videoMoncler.mp4" autoplay muted loop width="100%"></video>
-    <div class="capa">
-      <div class="capa-content">
-        <p>
-          Descubre la nueva colección de Moncler, elegancia y calidad en cada
-          detalle.
-        </p>
-        <a href="#moncler-products" class="btn">Ver productos Moncler</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="ventajasFooter">
-      <p class="titulo-footer">Nuestras ventajas</p>
-      <a href="#">Envios gratuitos</a>
-      <a href="#">Devoluciones gratuita</a>
-      <a href="#">Derecho de devolucion de 30 dias</a>
-    </div>
-
-    <div class="ayudaFooter">
-      <p class="titulo-footer">Ayuda y contacto</p>
-      <a href="#">Devolver un pedido</a>
-      <a href="#">Seguir tu pedido</a>
-      <a href="#">Información sobre entregas</a>
-    </div>
-
-    <div class="redesSociales">
-      <p class="titulo-footer">Nuestras redes sociales:</p>
-      <div class="iconos-redes">
-        <img class="logo" src="img/footer/redes/logoInstagram.png" alt="Instagram" />
-        <img class="logo" src="img/footer/redes/logoFacebook.png" alt="Facebook" />
-        <img class="logo" src="img/footer/redes/logoX.png" alt="X" />
-      </div>
-    </div>
-
-    <div class="infoContacto">
-      <article class="item-contacto">
-        <img src="img/footer/contacto/telefono.png" alt="Teléfono" />
-        <p>+34 000 000 000</p>
+    <section class="inicioProducts">
+      <article>
+        <h3 class="tituloProductos">RALPH LAUREN</h3>
+        <div class="producto" id="prod-1">
+          <img src="img/productos/poloMangaLarga.png" alt="poloRalphLauren" />
+          <a href="producto.html?id=1" class="btn-producto">Ver Producto</a>
+        </div>
+        <div class="producto" id="prod-2">
+          <img
+            src="img/productos/chaquetaRalph.png"
+            alt="chaquetaRalphLauren"
+          />
+          <a href="producto.html?id=3" class="btn-producto">Ver Producto</a>
+        </div>
+        <div class="producto" id="prod-3">
+          <img
+            src="img/productos/zapatillasRalph.png"
+            alt="zapatillasRalphLauren"
+          />
+          <a href="producto.html?id=2" class="btn-producto">Ver Producto</a>
+        </div>
+        <div class="producto" id="prod-4">
+          <img
+            src="img/productos/accesoriosRalph.png"
+            alt="correaRalphLauren"
+          />
+          <a href="producto.html?id=5" class="btn-producto">Ver Producto</a>
+        </div>
       </article>
-      <article class="item-contacto">
-        <img src="img/footer/contacto/correoEectronico.png" alt="Email" />
-        <p>ejemplo@gmail.com</p>
-      </article>
-    </div>
+    </section>
 
-    <div class="marcasFooter">
-      <p class="titulo-footer">Nuestras marcas</p>
-      <div class="logos-marcas">
-        <img class="logo" src="img/footer/marcas/maison-margiela.png" alt="maison-margiela" />
-        <img class="logo" src="img/footer/marcas/Moncler_logo.png" alt="Moncler" />
-        <img class="logo" src="img/footer/marcas/Stone-Island.png" alt="Stone-Island" />
-        <img class="logo" src="img/footer/marcas/Tom-Ford.png" alt="Tom-Ford" />
-        <img class="logo" src="img/footer/marcas/jacquemus.png" alt="jacquemus" />
-        <img class="logo" src="img/footer/marcas/dior_logo.jpg" alt="" />
-        <img class="logo" src="img/footer/marcas/Rolex.png" alt="Rolex" />
-        <img class="logo" src="img/footer/marcas/seiko.png" alt="seiko" />
-        <img class="logo" src="img/footer/marcas/gallery_dept.webp" alt="gallery_dept" />
-        <img class="logo" src="img/footer/marcas/hermes.png" alt="hermes" />
-        <img class="logo" src="img/footer/marcas/emporio-armani.png" alt="emporio-armani" />
-        <img class="logo" src="img/footer/marcas/hugoboss.webp" alt="hugoboss" />
-        <img class="logo" src="img/footer/marcas/lv.png" alt="lv" />
-        <img class="logo" src="img/footer/marcas/ralph-lauren.png" alt="ralph-lauren" />
-        <img class="logo" src="img/footer/marcas/lacoste.png" alt="lacoste" />
-        <img class="logo" src="img/footer/marcas/underArmour-Mansory.png" alt="" />
-        <img class="logo" src="img/footer/marcas/d&g.png" alt="d&g" />
-        <img class="logo" src="img/footer/marcas/cartier.png" alt="cartier" />
+    <section class="video-contenido">
+      <video
+        src="video/videoMoncler.mp4"
+        autoplay
+        muted
+        loop
+        width="100%"
+      ></video>
+      <div class="capa">
+        <div class="capa-content">
+          <p>
+            Descubre la nueva colección de Moncler, elegancia y calidad en cada
+            detalle.
+          </p>
+          <a href="#moncler-products" class="btn">Ver productos Moncler</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="ventajasFooter">
+        <p class="titulo-footer">Nuestras ventajas</p>
+        <a href="#">Envios gratuitos</a>
+        <a href="#">Devoluciones gratuita</a>
+        <a href="#">Derecho de devolucion de 30 dias</a>
+      </div>
+
+      <div class="ayudaFooter">
+        <p class="titulo-footer">Ayuda y contacto</p>
+        <a href="#">Devolver un pedido</a>
+        <a href="#">Seguir tu pedido</a>
+        <a href="#">Información sobre entregas</a>
+      </div>
+
+      <div class="redesSociales">
+        <p class="titulo-footer">Nuestras redes sociales:</p>
+        <div class="iconos-redes">
+          <img
+            class="logo"
+            src="img/footer/redes/logoInstagram.png"
+            alt="Instagram"
+          />
+          <img
+            class="logo"
+            src="img/footer/redes/logoFacebook.png"
+            alt="Facebook"
+          />
+          <img class="logo" src="img/footer/redes/logoX.png" alt="X" />
+        </div>
+      </div>
+
+      <div class="infoContacto">
+        <article class="item-contacto">
+          <img src="img/footer/contacto/telefono.png" alt="Teléfono" />
+          <p>+34 000 000 000</p>
+        </article>
+        <article class="item-contacto">
+          <img src="img/footer/contacto/correoEectronico.png" alt="Email" />
+          <p>ejemplo@gmail.com</p>
+        </article>
+      </div>
+
+      <div class="marcasFooter">
+        <p class="titulo-footer">Nuestras marcas</p>
+        <div class="logos-marcas">
+          <img
+            class="logo"
+            src="img/footer/marcas/maison-margiela.png"
+            alt="maison-margiela"
+          />
+          <img
+            class="logo"
+            src="img/footer/marcas/Moncler_logo.png"
+            alt="Moncler"
+          />
+          <img
+            class="logo"
+            src="img/footer/marcas/Stone-Island.png"
+            alt="Stone-Island"
+          />
+          <img
+            class="logo"
+            src="img/footer/marcas/Tom-Ford.png"
+            alt="Tom-Ford"
+          />
+          <img
+            class="logo"
+            src="img/footer/marcas/jacquemus.png"
+            alt="jacquemus"
+          />
+          <img class="logo" src="img/footer/marcas/dior_logo.jpg" alt="" />
+          <img class="logo" src="img/footer/marcas/Rolex.png" alt="Rolex" />
+          <img class="logo" src="img/footer/marcas/seiko.png" alt="seiko" />
+          <img
+            class="logo"
+            src="img/footer/marcas/gallery_dept.webp"
+            alt="gallery_dept"
+          />
+          <img class="logo" src="img/footer/marcas/hermes.png" alt="hermes" />
+          <img
+            class="logo"
+            src="img/footer/marcas/emporio-armani.png"
+            alt="emporio-armani"
+          />
+          <img
+            class="logo"
+            src="img/footer/marcas/hugoboss.webp"
+            alt="hugoboss"
+          />
+          <img class="logo" src="img/footer/marcas/lv.png" alt="lv" />
+          <img
+            class="logo"
+            src="img/footer/marcas/ralph-lauren.png"
+            alt="ralph-lauren"
+          />
+          <img class="logo" src="img/footer/marcas/lacoste.png" alt="lacoste" />
+          <img
+            class="logo"
+            src="img/footer/marcas/underArmour-Mansory.png"
+            alt=""
+          />
+          <img class="logo" src="img/footer/marcas/d&g.png" alt="d&g" />
+          <img class="logo" src="img/footer/marcas/cartier.png" alt="cartier" />
+        </div>
+      </div>
+
+      <div class="payMetodsFooter">
+        <p class="titulo-footer">Nuestros métodos de pago:</p>
+        <div class="iconos-pago">
+          <img
+            class="logo"
+            src="img/footer/metodoPago/logoPaypal.png"
+            alt="Paypal"
+          />
+          <img
+            class="logo"
+            src="img/footer/metodoPago/logoVisa.png"
+            alt="Visa"
+          />
+          <img
+            class="logo"
+            src="img/footer/metodoPago/logoMastercard.png"
+            alt="Mastercard"
+          />
+        </div>
+      </div>
+    </footer>
+    <!-- Modal Login/Register -->
+    <div class="modal-overlay" id="authModal">
+      <div class="login-card">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <h2 class="login-title">
+          Entra en <span class="brand-thin">L&</span
+          ><span class="brand-bold">SS</span>HOP
+        </h2>
+
+        <div class="auth-tabs">
+          <a href="#" class="tab active" id="tabLogin">Iniciar sesión</a>
+          <a href="#" class="tab" id="tabRegister">Registrarte</a>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form-content active" id="formLogin">
+          <form
+            method="POST"
+            action="../../backend/auth/login.php"
+            class="login-form"
+          >
+            <div class="form-group">
+              <label for="login_nom_usuari">Correo electrónico</label>
+              <input
+                type="text"
+                id="login_nom_usuari"
+                name="nom_usuari"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="login_contrasenya">Contraseña</label>
+              <input
+                type="password"
+                id="login_contrasenya"
+                name="contrasenya"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <a href="#" class="forgot-pass">¿Has olvidado tu contraseña?</a>
+
+            <button type="submit" class="btn-submit">Iniciar sesión</button>
+          </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-content" id="formRegister">
+          <form
+            method="POST"
+            action="../../backend/auth/register.php"
+            class="login-form"
+          >
+            <div class="form-group">
+              <label for="reg_nom_usuari">Nom d'usuari</label>
+              <input
+                type="text"
+                id="reg_nom_usuari"
+                name="nom_usuari"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="reg_email">Email</label>
+              <input
+                type="email"
+                id="reg_email"
+                name="email"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="reg_contrasenya">Contrasenya</label>
+              <input
+                type="password"
+                id="reg_contrasenya"
+                name="contrasenya"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="reg_nom">Nom (Opcional)</label>
+              <input type="text" id="reg_nom" name="nom" class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <label for="reg_cognoms">Cognoms (Opcional)</label>
+              <input
+                type="text"
+                id="reg_cognoms"
+                name="cognoms"
+                class="form-input"
+              />
+            </div>
+
+            <button type="submit" class="btn-submit">Registrar-se</button>
+          </form>
+        </div>
+
+        <div class="separator">
+          <span>o</span>
+        </div>
+
+        <div class="social-login">
+          <button class="btn-social google">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+              alt="Google"
+            />
+            Google
+          </button>
+          <button class="btn-social apple">
+            <i class="fab fa-apple"></i>
+            Apple
+          </button>
+        </div>
       </div>
     </div>
 
-    <div class="payMetodsFooter">
-      <p class="titulo-footer">Nuestros métodos de pago:</p>
-      <div class="iconos-pago">
-        <img class="logo" src="img/footer/metodoPago/logoPaypal.png" alt="Paypal" />
-        <img class="logo" src="img/footer/metodoPago/logoVisa.png" alt="Visa" />
-        <img class="logo" src="img/footer/metodoPago/logoMastercard.png" alt="Mastercard" />
-      </div>
-    </div>
-  </footer>
-  <!-- Modal Login/Register -->
-  <div class="modal-overlay" id="authModal">
-    <div class="login-card">
-      <span class="close-modal" id="closeModal">&times;</span>
-      <h2 class="login-title">
-        Entra en <span class="brand-thin">L&</span><span class="brand-bold">SS</span>HOP
-      </h2>
+    <script>
+      // Lógica del Modal
+      const modal = document.getElementById("authModal");
+      const openBtn = document.querySelector(
+        'a[href="../../backend/auth/login.php"]'
+      ); // Seleccionar el enlace de perfil
+      const closeBtn = document.getElementById("closeModal");
+      const tabLogin = document.getElementById("tabLogin");
+      const tabRegister = document.getElementById("tabRegister");
+      const formLogin = document.getElementById("formLogin");
+      const formRegister = document.getElementById("formRegister");
 
-      <div class="auth-tabs">
-        <a href="#" class="tab active" id="tabLogin">Iniciar sesión</a>
-        <a href="#" class="tab" id="tabRegister">Registrarte</a>
-      </div>
-
-      <!-- Login Form -->
-      <div class="form-content active" id="formLogin">
-        <form method="POST" action="../../backend/auth/login.php" class="login-form">
-          <div class="form-group">
-            <label for="login_nom_usuari">Correo electrónico</label>
-            <input type="text" id="login_nom_usuari" name="nom_usuari" class="form-input" required />
-          </div>
-
-          <div class="form-group">
-            <label for="login_contrasenya">Contraseña</label>
-            <input type="password" id="login_contrasenya" name="contrasenya" class="form-input" required />
-          </div>
-
-          <a href="#" class="forgot-pass">¿Has olvidado tu contraseña?</a>
-
-          <button type="submit" class="btn-submit">Iniciar sesión</button>
-        </form>
-      </div>
-
-      <!-- Register Form -->
-      <div class="form-content" id="formRegister">
-        <form method="POST" action="../../backend/auth/register.php" class="login-form">
-          <div class="form-group">
-            <label for="reg_nom_usuari">Nom d'usuari</label>
-            <input type="text" id="reg_nom_usuari" name="nom_usuari" class="form-input" required />
-          </div>
-
-          <div class="form-group">
-            <label for="reg_email">Email</label>
-            <input type="email" id="reg_email" name="email" class="form-input" required />
-          </div>
-
-          <div class="form-group">
-            <label for="reg_contrasenya">Contrasenya</label>
-            <input type="password" id="reg_contrasenya" name="contrasenya" class="form-input" required />
-          </div>
-
-          <div class="form-group">
-            <label for="reg_nom">Nom (Opcional)</label>
-            <input type="text" id="reg_nom" name="nom" class="form-input" />
-          </div>
-
-          <div class="form-group">
-            <label for="reg_cognoms">Cognoms (Opcional)</label>
-            <input type="text" id="reg_cognoms" name="cognoms" class="form-input" />
-          </div>
-
-          <button type="submit" class="btn-submit">Registrar-se</button>
-        </form>
-      </div>
-
-      <div class="separator">
-        <span>o</span>
-      </div>
-
-      <div class="social-login">
-        <button class="btn-social google">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" />
-          Google
-        </button>
-        <button class="btn-social apple">
-          <i class="fab fa-apple"></i>
-          Apple
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Lógica del Modal
-    const modal = document.getElementById("authModal");
-    const openBtn = document.querySelector(
-      'a[href="../../backend/auth/login.php"]'
-    ); // Seleccionar el enlace de perfil
-    const closeBtn = document.getElementById("closeModal");
-    const tabLogin = document.getElementById("tabLogin");
-    const tabRegister = document.getElementById("tabRegister");
-    const formLogin = document.getElementById("formLogin");
-    const formRegister = document.getElementById("formRegister");
-
-    // Prevenir el comportamiento por defecto del enlace y abrir el modal
-    if (openBtn) {
-      openBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        modal.classList.add("active");
-      });
-    }
-
-    // Cerrar modal
-    if (closeBtn) {
-      closeBtn.addEventListener("click", () => {
-        modal.classList.remove("active");
-      });
-    }
-
-    // Cerrar al hacer clic fuera
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.classList.remove("active");
+      // Prevenir el comportamiento por defecto del enlace y abrir el modal
+      if (openBtn) {
+        openBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          modal.classList.add("active");
+        });
       }
-    });
 
-    // Cambio de pestañas
-    tabLogin.addEventListener("click", (e) => {
-      e.preventDefault();
-      tabLogin.classList.add("active");
-      tabRegister.classList.remove("active");
-      formLogin.classList.add("active");
-      formRegister.classList.remove("active");
-    });
+      // Cerrar modal
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+          modal.classList.remove("active");
+        });
+      }
 
-    tabRegister.addEventListener("click", (e) => {
-      e.preventDefault();
-      tabRegister.classList.add("active");
-      tabLogin.classList.remove("active");
-      formRegister.classList.add("active");
-      formLogin.classList.remove("active");
-    });
-  </script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const carouselEl = document.getElementById("carouselExample");
-      const pageControl = document.getElementById("pageControl");
-      const flechaIzquierda = document.getElementById("flechaIzquierda");
-      const flechaDerecha = document.getElementById("flechaDerecha");
-
-      // Inicializar el carrusel de Bootstrap
-      const bsCarousel = new bootstrap.Carousel(carouselEl, {
-        interval: false, // Solo navegación manual
-        wrap: true,
-      });
-
-      // Manejadores de clic para las flechas
-      flechaDerecha.addEventListener("click", () => {
-        bsCarousel.next();
-      });
-
-      flechaIzquierda.addEventListener("click", () => {
-        bsCarousel.prev();
-      });
-
-      // Event listener para el cambio de diapositiva
-      carouselEl.addEventListener("slid.bs.carousel", function (event) {
-        const index = event.to; // El índice de la diapositiva a la que se transiciona
-
-        // Lógica:
-        // Diapositiva 0: Mostrar PageControl 1. Mostrar flecha Derecha. Ocultar flecha Izquierda.
-        // Diapositiva 1: Mostrar PageControl 2. Mostrar flecha Derecha. Mostrar flecha Izquierda.
-        // Diapositiva 2: Mostrar PageControl 3. Mostrar flecha Derecha. Ocultar flecha Izquierda.
-
-        // Reiniciar flechas primero
-        flechaIzquierda.style.display = "block";
-        flechaDerecha.style.display = "block";
-
-        if (index === 0) {
-          pageControl.src = "img/carruselPrincipal/pageControl.png";
-          flechaIzquierda.style.display = "none";
-        } else if (index === 1) {
-          pageControl.src = "img/carruselPrincipal/pageControl2.png";
-          // Ambas flechas visibles
-        } else if (index === 2) {
-          pageControl.src = "img/carruselPrincipal/pageControl3.png";
-          flechaDerecha.style.display = "none"; // Ocultar flecha derecha, mostrar flecha izquierda
+      // Cerrar al hacer clic fuera
+      window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("active");
         }
       });
-    });
-  </script>
-</body>
 
+      // Cambio de pestañas
+      tabLogin.addEventListener("click", (e) => {
+        e.preventDefault();
+        tabLogin.classList.add("active");
+        tabRegister.classList.remove("active");
+        formLogin.classList.add("active");
+        formRegister.classList.remove("active");
+      });
+
+      tabRegister.addEventListener("click", (e) => {
+        e.preventDefault();
+        tabRegister.classList.add("active");
+        tabLogin.classList.remove("active");
+        formRegister.classList.add("active");
+        formLogin.classList.remove("active");
+      });
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const carouselEl = document.getElementById("carouselExample");
+        const pageControl = document.getElementById("pageControl");
+        const flechaIzquierda = document.getElementById("flechaIzquierda");
+        const flechaDerecha = document.getElementById("flechaDerecha");
+
+        // Inicializar el carrusel de Bootstrap
+        const bsCarousel = new bootstrap.Carousel(carouselEl, {
+          interval: false, // Solo navegación manual
+          wrap: true,
+        });
+
+        // Manejadores de clic para las flechas
+        flechaDerecha.addEventListener("click", () => {
+          bsCarousel.next();
+        });
+
+        flechaIzquierda.addEventListener("click", () => {
+          bsCarousel.prev();
+        });
+
+        // Event listener para el cambio de diapositiva
+        carouselEl.addEventListener("slid.bs.carousel", function (event) {
+          const index = event.to; // El índice de la diapositiva a la que se transiciona
+
+          // Lógica:
+          // Diapositiva 0: Mostrar PageControl 1. Mostrar flecha Derecha. Ocultar flecha Izquierda.
+          // Diapositiva 1: Mostrar PageControl 2. Mostrar flecha Derecha. Mostrar flecha Izquierda.
+          // Diapositiva 2: Mostrar PageControl 3. Mostrar flecha Derecha. Ocultar flecha Izquierda.
+
+          // Reiniciar flechas primero
+          flechaIzquierda.style.display = "block";
+          flechaDerecha.style.display = "block";
+
+          if (index === 0) {
+            pageControl.src = "img/carruselPrincipal/pageControl.png";
+            flechaIzquierda.style.display = "none";
+          } else if (index === 1) {
+            pageControl.src = "img/carruselPrincipal/pageControl2.png";
+            // Ambas flechas visibles
+          } else if (index === 2) {
+            pageControl.src = "img/carruselPrincipal/pageControl3.png";
+            flechaDerecha.style.display = "none"; // Ocultar flecha derecha, mostrar flecha izquierda
+          }
+        });
+      });
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/login_ajax.js"></script>
+    <script src="js/auth_ui.js"></script>
+  </body>
 </html>

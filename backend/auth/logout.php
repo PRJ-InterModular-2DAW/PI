@@ -1,21 +1,15 @@
 <?php
-// backend/auth/logout.php
+session_start();
+session_unset();
+session_destroy();
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Destruir la sessió
-$_SESSION = array(); 
-session_destroy(); 
-
-// Eliminar la cookie d'identificació
+// Eliminar cookie si existe
 if (isset($_COOKIE['user_id'])) {
-    // Establece el valor a vacío y la caducidad en el pasado
     setcookie('user_id', '', time() - 3600, "/");
 }
 
-// Redirigir a la página de inicio (sube dos niveles: ../../)
-header("Location: ../../index.html"); 
+// Redirigir a la página de donde vino, o al index si no hay referencia
+$redirect = $_SERVER['HTTP_REFERER'] ?? '../../web/index.html';
+header("Location: $redirect");
 exit;
 ?>

@@ -1,7 +1,7 @@
 <?php
 // backend/auth/login.php
 
-require_once '../includes/json_connect.php'; 
+require_once '../includes/json_connect.php';
 
 $errores = [];
 
@@ -9,22 +9,28 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// NUEVO: Si ya está logueado, redirigir al perfil
+if (isset($_SESSION['user_id'])) {
+    header("Location: profile.php");
+    exit;
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nomUsuari = trim($_POST["nom_usuari"] ?? "");
-    $contrasenya_raw = $_POST["contrasenya"] ?? ""; 
-    
+    $contrasenya_raw = $_POST["contrasenya"] ?? "";
+
     $usuari = buscarUsuarioPorNombre($nomUsuari);
 
     if (!$usuari) {
         $errores[] = "Nom d'usuari o contrasenya incorrectes.";
     } else {
         if (password_verify($contrasenya_raw, $usuari['contrasenya'])) {
-            session_regenerate_id(true); 
+            session_regenerate_id(true);
             $_SESSION['user_id'] = $usuari['id'];
             $_SESSION['nom_usuari'] = $usuari['nom_usuari'];
-            setcookie('user_id', $usuari['id'], time() + 3600, "/"); 
-            
-            header("Location: profile.php"); 
+            setcookie('user_id', $usuari['id'], time() + 3600, "/");
+
+            header("Location: ../../web/index.html");
             exit;
         } else {
             $errores[] = "Nom d'usuari o contrasenya incorrectes.";
@@ -34,17 +40,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - L&SSHOP</title>
     <!-- Fuente Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Enlace al CSS -->
-    <link rel="stylesheet" href="../../web/css/login-style.css">
+    <link rel="stylesheet" href="../../frontend/web/css/login-style.css">
 </head>
+
 <body>
 
     <div class="overlay"></div>
@@ -68,7 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <form method="POST" action="login.php" class="login-form">
             <div class="form-group">
                 <label for="nom_usuari">Correo electrónico</label>
-                <input type="text" id="nom_usuari" name="nom_usuari" class="form-input" value="<?= htmlspecialchars($_POST['nom_usuari'] ?? '') ?>" required>
+                <input type="text" id="nom_usuari" name="nom_usuari" class="form-input"
+                    value="<?= htmlspecialchars($_POST['nom_usuari'] ?? '') ?>" required>
             </div>
 
             <div class="form-group">
@@ -98,4 +108,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 
 </body>
+
 </html>

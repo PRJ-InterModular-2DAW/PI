@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle del Producto - L&SSHOP</title>
+    <!-- Mismos CSS que index -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/estilos.css?v=2" />
+    <link rel="stylesheet" href="css/login-style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Estilos específicos para producto (pueden ir en main.scss, pero para prototipar rápido aqui o un style extra) -->
+  </head>
+  <body>
+    <!-- Header reutilizado -->
+    <header>
+      <div class="header-left">
+        <a class="filtroSexo" href="index.html">Inicio</a>
+      </div>
+      <img src="img/header/logo.png" class="logo" alt="Logo L&SSHOP" />
+      <div class="header-right">
+        <img
+          src="img/header/iconoCarritos.png"
+          class="icon"
+          id="carritoCompra"
+          alt="Carrito"
+        />
+        <a href="../../backend/auth/login.php">
+          <img src="img/header/iconoPerfil.png" class="icon" alt="Perfil" />
+        </a>
+      </div>
+    </header>
+
+    <div class="container mt-5 mb-5">
+      <!-- Detalle Producto -->
+      <div class="row" id="producto-container">
+        <div class="col-md-6 text-center">
+          <!-- Imagen placeholder o loader -->
+          <div class="spinner-border text-secondary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <!-- Info placeholder -->
+        </div>
+      </div>
+
+      <hr class="my-5" />
+
+      <!-- Sección Comentarios -->
+      <section id="seccion-comentarios">
+        <h3>Opiniones de nuestros clientes</h3>
+
+        <!-- Lista Comentarios -->
+        <div id="lista-comentarios" class="mb-4">
+          <p class="text-muted">Cargando comentarios...</p>
+        </div>
+
+        <!-- Formulario Comentarios -->
+        <div class="card bg-light">
+          <div class="card-body">
+            <h5 class="card-title">Deja tu opinión</h5>
+            <form id="form-comentario">
+              <div class="mb-3">
+                <label for="puntuacion" class="form-label">Puntuación</label>
+                <select class="form-select" id="puntuacion">
+                  <option value="5">⭐⭐⭐⭐⭐ Excelente</option>
+                  <option value="4">⭐⭐⭐⭐ Muy bueno</option>
+                  <option value="3">⭐⭐⭐ Normal</option>
+                  <option value="2">⭐⭐ Regular</option>
+                  <option value="1">⭐ Malo</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="comentario" class="form-label">Tu comentario</label>
+                <textarea
+                  class="form-control"
+                  id="comentario-texto"
+                  rows="3"
+                  required
+                  placeholder="¿Qué te ha parecido este producto?"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-dark">
+                Publicar comentario
+              </button>
+            </form>
+            <div id="mensaje-form" class="mt-2"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p class="text-center py-4">L&SSHOP &copy; 2025</p>
+    </footer>
+
+    <!-- Modal Login/Register COPIADO DE INDEX -->
+    <div class="modal-overlay" id="authModal">
+      <div class="login-card">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <h2 class="login-title">
+          Entra en <span class="brand-thin">L&</span
+          ><span class="brand-bold">SS</span>HOP
+        </h2>
+
+        <div class="auth-tabs">
+          <a href="#" class="tab active" id="tabLogin">Iniciar sesión</a>
+          <a href="#" class="tab" id="tabRegister">Registrarte</a>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form-content active" id="formLogin">
+          <form
+            method="POST"
+            action="../../backend/auth/login.php"
+            class="login-form"
+          >
+            <div class="form-group">
+              <label for="login_nom_usuari">Correo electrónico</label>
+              <input
+                type="text"
+                id="login_nom_usuari"
+                name="nom_usuari"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="login_contrasenya">Contraseña</label>
+              <input
+                type="password"
+                id="login_contrasenya"
+                name="contrasenya"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <a href="#" class="forgot-pass">¿Has olvidado tu contraseña?</a>
+
+            <button type="submit" class="btn-submit">Iniciar sesión</button>
+          </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-content" id="formRegister">
+          <form
+            method="POST"
+            action="../../backend/auth/register.php"
+            class="login-form"
+          >
+            <div class="form-group">
+              <label for="reg_nom_usuari">Nom d'usuari</label>
+              <input
+                type="text"
+                id="reg_nom_usuari"
+                name="nom_usuari"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="reg_email">Email</label>
+              <input
+                type="email"
+                id="reg_email"
+                name="email"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="reg_contrasenya">Contrasenya</label>
+              <input
+                type="password"
+                id="reg_contrasenya"
+                name="contrasenya"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="reg_nom">Nom (Opcional)</label>
+              <input type="text" id="reg_nom" name="nom" class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <label for="reg_cognoms">Cognoms (Opcional)</label>
+              <input
+                type="text"
+                id="reg_cognoms"
+                name="cognoms"
+                class="form-input"
+              />
+            </div>
+
+            <button type="submit" class="btn-submit">Registrar-se</button>
+          </form>
+        </div>
+
+        <div class="separator">
+          <span>o</span>
+        </div>
+
+        <div class="social-login">
+          <button class="btn-social google">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+              alt="Google"
+            />
+            Google
+          </button>
+          <button class="btn-social apple">
+            <i class="fab fa-apple"></i>
+            Apple
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Lógica del Modal (Copiada y adaptada)
+      const modal = document.getElementById("authModal");
+      const openBtn = document.querySelector(
+        'a[href="../../backend/auth/login.php"]'
+      );
+      const closeBtn = document.getElementById("closeModal");
+      const tabLogin = document.getElementById("tabLogin");
+      const tabRegister = document.getElementById("tabRegister");
+      const formLogin = document.getElementById("formLogin");
+      const formRegister = document.getElementById("formRegister");
+
+      if (openBtn) {
+        openBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          modal.classList.add("active");
+        });
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+          modal.classList.remove("active");
+        });
+      }
+
+      window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("active");
+        }
+      });
+
+      tabLogin.addEventListener("click", (e) => {
+        e.preventDefault();
+        tabLogin.classList.add("active");
+        tabRegister.classList.remove("active");
+        formLogin.classList.add("active");
+        formRegister.classList.remove("active");
+      });
+
+      tabRegister.addEventListener("click", (e) => {
+        e.preventDefault();
+        tabRegister.classList.add("active");
+        tabLogin.classList.remove("active");
+        formRegister.classList.add("active");
+        formLogin.classList.remove("active");
+      });
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/producto.js"></script>
+    <script src="js/login_ajax.js"></script>
+    <script src="js/auth_ui.js"></script>
+  </body>
+</html>
