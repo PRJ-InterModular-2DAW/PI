@@ -1,0 +1,736 @@
+@charset "UTF-8";
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: "Montserrat", "Avenir";
+  background: #d6d8df;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "header-left logo header-right";
+  padding: 10px 20px;
+  background-color: #fff1cf;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+header .header-left {
+  grid-area: header-left;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 30px;
+}
+header .header-left a {
+  color: #000;
+  text-decoration: none;
+}
+header .header-right {
+  grid-area: header-right;
+}
+header .header-right img {
+  margin-right: 20px;
+  margin-top: 4%;
+  float: right;
+}
+header .icon {
+  width: 25px;
+  margin-right: 5px;
+}
+header .logo {
+  grid-area: logo;
+  justify-self: center;
+  width: 300px;
+}
+
+/*--------------- APARTADO DEL NAVEGADOR (OPTIMIZADO) ---------------*/
+nav {
+  display: grid;
+  grid-template-areas: "novedades ropa calzado accesorios relojes buscador";
+  grid-template-columns: repeat(5, auto) 1fr;
+  column-gap: 3px;
+  background-color: #fff;
+  padding: 5px 0;
+  /* Adjusted padding */
+  width: 100%;
+  /* height: 30px; REMOVED to allow content to fit */
+  border-bottom: solid 1px #000;
+  border-top: solid 1px #000;
+  font-weight: bold;
+  align-items: center;
+  /* Center items vertically */
+}
+nav a {
+  color: #000;
+  text-decoration: none;
+}
+nav .nav-item {
+  padding: 5px;
+  margin: 0;
+}
+nav #novedades {
+  grid-area: novedades;
+  border-right: solid 2px #000;
+  padding-right: 15px;
+}
+nav #ropa {
+  grid-area: ropa;
+}
+nav #calzado {
+  grid-area: calzado;
+}
+nav #accesorios {
+  grid-area: accesorios;
+}
+nav #relojes {
+  grid-area: relojes;
+}
+nav #buscador {
+  grid-area: buscador;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 15px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  width: 200px;
+  /* Fixed width as requested implicitly */
+  box-sizing: border-box;
+  justify-self: end;
+  /* Align to the right end of the container */
+  margin-right: 10px;
+  /* Little margin from edge */
+}
+nav #buscador:hover, nav #buscador:focus-within {
+  border-color: #000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+nav #buscador img {
+  width: 18px;
+  margin-right: 10px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+nav #buscador:hover img, nav #buscador:focus-within img {
+  opacity: 1;
+}
+nav #buscador .input-buscador {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  color: #000;
+}
+nav {
+  /* .nav-item-rigth class is no longer strictly needed for width if #buscador handles it, 
+     but keeping it for structure if needed */
+}
+nav .nav-item-rigth {
+  /* width: 200px; handled by #buscador */
+  justify-self: end;
+}
+nav .mobile-extra {
+  display: none;
+}
+
+.slider .img-slider {
+  height: 300px;
+  width: 97.5%;
+  margin: 20px;
+  border-radius: 20px;
+  background-color: #d6d8df;
+}
+
+.slider-container {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  position: relative;
+  width: 95%;
+  margin: 20px;
+  border-radius: 20px;
+}
+.slider-container .img-slider {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  background-color: #d6d8df;
+}
+.slider-container .img-flecha {
+  position: absolute;
+  top: 150px;
+  left: 98%;
+  right: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+.slider-container .img-pageControl {
+  position: absolute;
+  bottom: 30px;
+  left: 48%;
+  width: 60px;
+}
+
+/*--------------- Apartado de productos en el body  ---------------*/
+.inicioProducts {
+  margin: 0px 20px 20px 20px;
+  border-radius: 20px;
+  background-color: #fff;
+  padding-bottom: 40px;
+}
+.inicioProducts article {
+  display: grid;
+  grid-template-areas: "titulo titulo titulo titulo" "prod1 prod2 prod3 prod4";
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 40px;
+}
+.inicioProducts .tituloProductos {
+  grid-area: titulo;
+  padding: 20px 0px 0px 0px;
+  margin-bottom: 10px;
+}
+.inicioProducts #prod-1 {
+  grid-area: prod1;
+}
+.inicioProducts #prod-2 {
+  grid-area: prod2;
+}
+.inicioProducts #prod-3 {
+  grid-area: prod3;
+}
+.inicioProducts #prod-4 {
+  grid-area: prod4;
+}
+.inicioProducts .producto {
+  position: relative;
+  overflow: hidden;
+}
+.inicioProducts .producto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  background-color: #d6d8df;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.inicioProducts .producto .btn-producto {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background-color: #fff1cf;
+  color: #000;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+  opacity: 0;
+  bottom: -20px;
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+/*---------------------------------------------VIDEO (ANIDADO)--------------------------------------*/
+.video-contenido {
+  position: relative;
+  width: 100%;
+}
+.video-contenido video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+.video-contenido .capa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  padding: 20px;
+  border-radius: 0;
+}
+.video-contenido .capa .capa-content {
+  text-align: center;
+}
+.video-contenido .capa p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Estilo del botón */
+.btn {
+  background-color: #fff1cf;
+  color: #000;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+footer {
+  color: #fff;
+  background-color: #9196ae;
+  padding: 40px 20px;
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "ventajas redes pago contacto" "ayuda    marcas .    .";
+  column-gap: 20px;
+  row-gap: 40px;
+}
+footer .titulo-footer {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+footer .ventajasFooter {
+  grid-area: ventajas;
+  display: grid;
+  gap: 5px;
+  align-content: start;
+}
+footer .ventajasFooter a {
+  color: #fff;
+  text-decoration: none;
+}
+footer .redesSociales {
+  grid-area: redes;
+}
+footer .redesSociales .iconos-redes {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  gap: 15px;
+}
+footer .redesSociales .logo {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  grid-area: auto;
+}
+footer .payMetodsFooter {
+  grid-area: pago;
+}
+footer .payMetodsFooter .iconos-pago {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, max-content));
+  gap: 10px;
+  justify-content: start;
+}
+footer .payMetodsFooter img {
+  height: 35px;
+  width: auto;
+}
+footer .infoContacto {
+  grid-area: contacto;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+footer .infoContacto .item-contacto {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+footer .infoContacto .item-contacto img {
+  width: 20px;
+  height: 20px;
+}
+footer .ayudaFooter {
+  grid-area: ayuda;
+  display: grid;
+  gap: 5px;
+  align-content: start;
+}
+footer .ayudaFooter a {
+  color: #fff;
+  text-decoration: none;
+}
+footer .marcasFooter {
+  grid-area: marcas;
+}
+footer .marcasFooter .logos-marcas {
+  display: grid;
+  grid-template-columns: repeat(5, max-content);
+  gap: 20px;
+  align-items: center;
+}
+footer .marcasFooter .logos-marcas img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-item:hover {
+  color: #fff;
+  background-color: #9196ae;
+  border-radius: 10px;
+}
+
+.header-left a {
+  display: inline-block;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+.header-left a:hover {
+  transform: scale(1.1);
+  background-color: #9196ae;
+  cursor: pointer;
+}
+
+.producto {
+  border-radius: 20px;
+  transition: border 0.3s ease;
+}
+.producto img {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.producto:hover {
+  border-color: #000;
+}
+.producto:hover .btn-producto {
+  opacity: 1;
+  bottom: 40%;
+}
+.producto:hover img {
+  filter: brightness(70%);
+  transform: scale(1.1);
+}
+
+.btn:hover {
+  background-color: #d6d8df;
+}
+
+.ayudaFooter a:hover,
+.ventajasFooter a:hover,
+.infoContacto a:hover {
+  color: #d6d8df;
+}
+
+.icon,
+.redesSociales .logo,
+.payMetodsFooter .logo,
+.marcasFooter .logo {
+  transition: transform 0.3s ease;
+}
+.icon:hover,
+.redesSociales .logo:hover,
+.payMetodsFooter .logo:hover,
+.marcasFooter .logo:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/*Animacion bandera*/
+@keyframes slideBandera {
+  0% {
+    content: url("../img/header/iconoBanderaEspaña.png");
+  }
+  50% {
+    content: url("../img/header/iconoBanderaInglesa.png");
+  }
+  100% {
+    content: url("../img/header/iconoBanderaEspaña.png");
+  }
+}
+.header-right #logoBandera {
+  animation: slideBandera 10s infinite;
+}
+
+/*Animacion carrito*/
+@keyframes saltoCarrito {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  70% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+#carritoCompra {
+  animation-name: saltoCarrito;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+}
+
+#nav-ropa {
+  animation-delay: 0.5s;
+  animation-name: saltoCarrito;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+#nav-calzado {
+  animation-delay: 0.7s;
+  animation-name: saltoCarrito;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+#nav-accesorios {
+  animation-delay: 1s;
+  animation-name: saltoCarrito;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+#nav-relojes {
+  animation-delay: 1.3s;
+  animation-name: saltoCarrito;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.slider .carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.slider .slider-container {
+  position: relative;
+}
+.slider .img-flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  width: 50px;
+  transition: opacity 0.3s;
+}
+.slider .img-flecha.derecha {
+  right: 5%;
+}
+.slider .img-flecha.izquierda {
+  left: 5%;
+  transform: translateY(-50%) rotate(180deg);
+}
+.slider .img-pageControl {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 100px;
+}
+
+@media (max-width: 768px) {
+  header {
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: "logo logo hamburger" "mobile-menu mobile-menu mobile-menu";
+    position: relative;
+  }
+  header .header-left {
+    display: none !important;
+  }
+  header .logo {
+    width: 180px;
+    justify-self: center;
+    grid-area: logo;
+  }
+  header .header-right {
+    display: none !important;
+  }
+  header .hamburger-btn {
+    display: flex !important;
+    justify-self: end;
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+  nav {
+    display: flex;
+    /* Switch to flex for easier mobile menu flow */
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 10px;
+  }
+  nav .nav-item {
+    font-size: 13px;
+  }
+  nav #nav-ropa,
+  nav #nav-calzado,
+  nav #nav-accesorios,
+  nav #nav-relojes,
+  nav .mobile-extra {
+    /* Also ensure extra items are controllable */
+    display: none;
+    /* Removed !important to allow JS toggle, depends on specificity */
+    width: 100%;
+    /* Make them take full width in mobile menu */
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+  }
+  nav #novedades {
+    border-right: solid 2px #000;
+    padding-right: 15px;
+    width: auto;
+  }
+  nav #buscador {
+    width: auto;
+    flex-grow: 1;
+  }
+  .slider-container {
+    margin: 10px;
+    width: calc(100% - 20px);
+  }
+  .slider-container .img-slider {
+    height: 200px;
+  }
+  .slider-container .img-flecha {
+    width: 30px;
+    top: 100px;
+    left: 95%;
+  }
+  .slider-container .img-pageControl {
+    width: 50px;
+    left: 45%;
+  }
+  .inicioProducts {
+    margin: 10px;
+  }
+  .inicioProducts article {
+    grid-template-areas: "titulo titulo" "prod1 prod2" "prod3 prod4";
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 20px;
+  }
+  .inicioProducts .producto img {
+    height: 150px;
+  }
+  .inicioProducts .btn-producto {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+  .video-contenido .capa p {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .video-contenido .capa .btn {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+  footer {
+    grid-template-columns: 1fr;
+    grid-template-areas: "ventajas" "redes" "pago" "contacto" "ayuda" "marcas";
+    padding: 20px 15px;
+    gap: 20px;
+    font-size: 13px;
+  }
+  footer .logos-marcas {
+    grid-template-columns: repeat(3, max-content) !important;
+    gap: 15px !important;
+  }
+  footer .iconos-pago {
+    grid-template-columns: repeat(3, max-content) !important;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  header .header-left {
+    margin-left: 15px;
+  }
+  header .header-left a {
+    margin-right: 30px;
+  }
+  header .logo {
+    width: 250px;
+  }
+  header .icon {
+    width: 22px;
+  }
+  nav {
+    grid-template-columns: repeat(5, auto) 1fr;
+    column-gap: 5px;
+  }
+  nav .nav-item {
+    font-size: 14px;
+  }
+  nav #buscador .input-buscador {
+    font-size: 13px;
+  }
+  .inicioProducts article {
+    grid-template-areas: "titulo titulo titulo" "prod1 prod2 prod3" "prod4 . .";
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 0 30px;
+  }
+  .inicioProducts .producto img {
+    height: 180px;
+  }
+  footer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "ventajas redes" "pago contacto" "ayuda marcas";
+    gap: 25px;
+    padding: 30px 15px;
+  }
+  footer .logos-marcas {
+    grid-template-columns: repeat(4, max-content) !important;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  header .logo {
+    width: 280px;
+  }
+  nav .nav-item {
+    font-size: 15px;
+  }
+  .inicioProducts article {
+    padding: 0 35px;
+    gap: 18px;
+  }
+  .inicioProducts .producto img {
+    height: 190px;
+  }
+  footer {
+    grid-template-columns: repeat(3, 1fr) 1fr;
+    column-gap: 15px;
+  }
+  footer .logos-marcas {
+    grid-template-columns: repeat(4, max-content) !important;
+    gap: 15px !important;
+  }
+}
+
+/*# sourceMappingURL=estilos.css.map */

@@ -1,0 +1,157 @@
+@use 'colores';
+@use 'mixins';
+
+// Lista de elementos de navegación para iterar: (id_html: grid-area)
+$nav-items: (
+  novedades: novedades,
+  ropa: ropa,
+  calzado: calzado,
+  accesorios: accesorios,
+  relojes: relojes
+);
+
+header {
+  @include mixins.header-layout-3col;
+  background-color: colores.$color-background-header;
+  color: colores.$color-text;
+  font-weight: bold;
+  text-decoration: none;
+
+  .header-left {
+    grid-area: header-left;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 30px;
+
+    a {
+      color: colores.$color-text;
+      text-decoration: none;
+    }
+  }
+
+  .header-right {
+    grid-area: header-right;
+
+    img {
+      margin-right: 20px;
+      margin-top: 4%;
+      float: right;
+    }
+  }
+
+  .icon {
+    width: 25px;
+    margin-right: 5px;
+  }
+
+  .logo {
+    grid-area: logo;
+    justify-self: center;
+    width: 300px;
+  }
+}
+
+/*--------------- APARTADO DEL NAVEGADOR (OPTIMIZADO) ---------------*/
+
+nav {
+  display: grid;
+  grid-template-areas: "novedades ropa calzado accesorios relojes buscador";
+  grid-template-columns: repeat(5, auto) 1fr;
+
+  column-gap: 3px;
+  background-color: colores.$color-background-nav;
+  padding: 5px 0;
+  /* Adjusted padding */
+  width: 100%;
+  /* height: 30px; REMOVED to allow content to fit */
+  border-bottom: solid 1px colores.$color-text;
+  border-top: solid 1px colores.$color-text;
+  font-weight: bold;
+  align-items: center;
+  /* Center items vertically */
+
+  a {
+    color: colores.$color-text;
+    text-decoration: none;
+  }
+
+  .nav-item {
+    padding: 5px;
+    margin: 0;
+  }
+
+  // Bucle @each para asignar grid-area a los elementos
+  @each $item-id, $area-name in $nav-items {
+    ##{$item-id} {
+      grid-area: $area-name;
+
+      // Condicional @if: Caso especial para el borde de 'novedades'
+      @if $item-id ==novedades {
+        border-right: solid 2px colores.$color-text;
+        padding-right: 15px;
+      }
+    }
+  }
+
+  #buscador {
+    grid-area: buscador;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 15px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    width: 200px;
+    /* Fixed width as requested implicitly */
+    box-sizing: border-box;
+    justify-self: end;
+    /* Align to the right end of the container */
+    margin-right: 10px;
+    /* Little margin from edge */
+
+    &:hover,
+    &:focus-within {
+      border-color: colores.$color-text; // Assuming this is a dark color, or use specific color
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    img {
+      width: 18px;
+      margin-right: 10px;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover img,
+    &:focus-within img {
+      opacity: 1;
+    }
+
+    .input-buscador {
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 100%;
+      font-family: inherit;
+      font-size: 14px;
+      color: colores.$color-text;
+    }
+  }
+
+  /* .nav-item-rigth class is no longer strictly needed for width if #buscador handles it, 
+     but keeping it for structure if needed */
+  .nav-item-rigth {
+    /* width: 200px; handled by #buscador */
+    justify-self: end;
+  }
+
+  // Hide mobile-extra items on desktop
+  .mobile-extra {
+    display: none;
+  }
+}

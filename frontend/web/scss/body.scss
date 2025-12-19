@@ -1,0 +1,143 @@
+@use 'colores'; 
+@use 'mixins';
+
+.slider {
+  .img-slider {
+    height: 300px;
+    width: 97.5%;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: colores.$color-background-body-slider-product;
+  }
+}
+
+.slider-container {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  position: relative;
+  width: 95%;
+  margin: 20px;
+  border-radius: 20px;
+
+  .img-slider {
+    @include mixins.product-image(300px);
+  }
+
+  .img-flecha {
+    position: absolute;
+    top: 150px;
+    left: 98%;
+    right: 40px;
+    width: 40px;
+    cursor: pointer;
+  }
+
+  .img-pageControl {
+    position: absolute;
+    bottom: 30px;
+    left: 48%;
+    width: 60px;
+  }
+}
+
+/*--------------- Apartado de productos en el body  ---------------*/
+
+.inicioProducts {
+  margin: 0px 20px 20px 20px;
+  border-radius: 20px;
+  background-color: colores.$color-background-nav;
+  padding-bottom: 40px;
+
+
+  article {
+    display: grid;
+    grid-template-areas:
+      "titulo titulo titulo titulo"
+      "prod1 prod2 prod3 prod4";
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 40px;
+  }
+
+  .tituloProductos {
+    grid-area: titulo;
+    padding: 20px 0px 0px 0px;
+    margin-bottom: 10px;
+  }
+
+  // Bucle @for para asignar los grid-areas de prod-1 a prod-4
+  @for $i from 1 through 4 {
+    #prod-#{$i} {
+      grid-area: prod#{$i};
+    }
+  }
+
+  .producto {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      @include mixins.product-image(200px);
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-producto { 
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      
+      @include mixins.button-style(10px 20px); 
+
+      opacity: 0;
+      bottom: -20px;
+
+      transition: opacity 0.3s ease, bottom 0.3s ease; 
+    }
+  }
+}
+
+
+/*---------------------------------------------VIDEO (ANIDADO)--------------------------------------*/
+
+.video-contenido {
+  position: relative;
+  width: 100%;
+
+  video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .capa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(colores.$color-text, 0.5);
+
+    @include mixins.place-items-center;
+
+    color: colores.$color-text-footer;
+    padding: 20px;
+    border-radius: 0;
+
+    .capa-content {
+      text-align: center;
+    }
+
+    p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+/* Estilo del botón */
+.btn {
+  @include mixins.button-style(10px 20px);
+  transition: background-color 0.3s ease;
+}

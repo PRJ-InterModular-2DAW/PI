@@ -1,0 +1,11 @@
+@use 'colores';
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: 'Montserrat', 'Avenir';
+  background: colores.$color-background-body-slider-product;
+}

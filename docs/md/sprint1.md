@@ -21,7 +21,7 @@ Durante esta primera iteración, se trabaja configuración del entorno, la creac
 - [x] Creació del repositori i tauler GitHub Projects  
 - [x] Maquetació pàgina inicial  
 - [x] Formulari de contacte (HTML + validació PHP)  
-- [ ] Pla de riscos laborals
+- [x] Pla de riscos laborals
 
 ## 🛠️ Tecnologies que farem servir  
 | Àmbit | Eines / Tecnologies |

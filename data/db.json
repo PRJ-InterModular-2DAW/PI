@@ -1,0 +1,82 @@
+{
+    "productes": [
+        {
+            "id": 1,
+            "sku": "SKU-1",
+            "nom": "Camiseta Ralph Lauren",
+            "descripcio": "Camiseta de algodon 100% de manga corta",
+            "preu": 40,
+            "estoc": 25
+        },
+        {
+            "id": 2,
+            "sku": "SKU-2",
+            "nom": "Zapatillas Nike",
+            "descripcio": "Zapatillas perfectaas para salir a correr",
+            "preu": 60,
+            "estoc": 15
+        },
+        {
+            "id": 3,
+            "sku": "SKU-3",
+            "nom": "Chaqueta Lacoste",
+            "descripcio": "Chaqueta perfecta para esos dias de frio",
+            "preu": 150,
+            "estoc": 30
+        },
+        {
+            "id": 4,
+            "sku": "SKU-4",
+            "nom": "Sudadera The North Face",
+            "descripcio": "Sudadera para el dia a dia",
+            "preu": 50,
+            "estoc": 40
+        },
+        {
+            "id": 5,
+            "sku": "SKU-5",
+            "nom": "Reloj Casio",
+            "descripcio": "Reloj perfecto para uso cotiaidano",
+            "preu": 68,
+            "estoc": 23
+        }
+    ],
+    "usuaris": [
+        {
+            "id": "1",
+            "nom_usuari": "andres",
+            "contrasenya": "$2y$10$ABC123HASHXIFRAT...",
+            "email": "andres@example.com",
+            "nom": "Andrés",
+            "cognoms": "García Pérez",
+            "data_registre": "2025-10-31T10:00:00Z"
+        },
+        {
+            "id": "2",
+            "nom_usuari": "adam",
+            "contrasenya": "$2y$10$EoMxoJ9gV92P1ZKHga93aOjmgEl6wK5tgGwU0WzBjEiT0qFfNlFrK",
+            "email": "adamakloul@icloud.com",
+            "nom": "Adam",
+            "cognoms": "Aaloul",
+            "data_registre": "2025-11-27T16:04:38+00:00"
+        },
+        {
+            "id": "3",
+            "nom_usuari": "kevin",
+            "contrasenya": "$2y$10$xGT5Rxl4gWRdUEwinX70iO37PCK7bZ0FGL89NvVmxgh0dRbW7w9Ea",
+            "email": "kevintolsa@gmail.com",
+            "nom": "Kevin",
+            "cognoms": "Tolsa",
+            "data_registre": "2025-11-27T16:05:02+00:00"
+        },
+        {
+            "id": "4",
+            "nom_usuari": "albert",
+            "contrasenya": "$2y$10$61i\/bXLYWkpK65ACxdRakOlC9pngD8xMhiAwTUdSvPxmekM13AmLu",
+            "email": "adamakloul@icloud.com",
+            "nom": "Albert",
+            "cognoms": "Danga",
+            "data_registre": "2025-11-27T19:18:55+00:00"
+        }
+    ]
+}

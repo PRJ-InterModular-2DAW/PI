@@ -1,0 +1,271 @@
+@use 'colores';
+@use 'header';
+@use 'body';
+@use 'footer';
+
+//Estilos tamaño mobile
+@media (max-width: 768px) {
+
+    header {
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-areas:
+            "logo logo hamburger"
+            "mobile-menu mobile-menu mobile-menu";
+        position: relative;
+
+        .header-left {
+            display: none !important; // Ocultar filtros de género en mobile
+        }
+
+        .logo {
+            width: 180px;
+            justify-self: center;
+            grid-area: logo;
+        }
+
+        // Ocultar header-right en mobile
+        .header-right {
+            display: none !important;
+        }
+
+        // Mostrar botón hamburger en mobile
+        .hamburger-btn {
+            display: flex !important;
+            justify-self: end;
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+    }
+
+    // NAV: Mantener solo NOVEDADES y buscador visibles por defecto
+    nav {
+        display: flex;
+        /* Switch to flex for easier mobile menu flow */
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 10px 15px;
+        gap: 10px;
+
+        .nav-item {
+            font-size: 13px;
+        }
+
+        // Ocultar items de navegación excepto NOVEDADES
+        #nav-ropa,
+        #nav-calzado,
+        #nav-accesorios,
+        #nav-relojes,
+        .mobile-extra {
+            /* Also ensure extra items are controllable */
+            display: none;
+            /* Removed !important to allow JS toggle, depends on specificity */
+            width: 100%;
+            /* Make them take full width in mobile menu */
+            text-align: center;
+            border-top: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        #novedades {
+            border-right: solid 2px colores.$color-text;
+            padding-right: 15px;
+            width: auto;
+        }
+
+        #buscador {
+            width: auto;
+            flex-grow: 1;
+        }
+    }
+
+    // SLIDER: Ajustar altura y controles
+    .slider-container {
+        margin: 10px;
+        width: calc(100% - 20px);
+
+        .img-slider {
+            height: 200px;
+        }
+
+        .img-flecha {
+            width: 30px;
+            top: 100px;
+            left: 95%;
+        }
+
+        .img-pageControl {
+            width: 50px;
+            left: 45%;
+        }
+    }
+
+    // PRODUCTOS: Layout de 2 columnas en mobile
+    .inicioProducts {
+        margin: 10px;
+
+        article {
+            grid-template-areas:
+                "titulo titulo"
+                "prod1 prod2"
+                "prod3 prod4";
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        .producto img {
+            height: 150px;
+        }
+
+        .btn-producto {
+            font-size: 12px;
+            padding: 8px 15px;
+        }
+    }
+
+    // VIDEO: Ajustar texto
+    .video-contenido {
+        .capa {
+            p {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+
+            .btn {
+                font-size: 12px;
+                padding: 8px 15px;
+            }
+        }
+    }
+
+    // FOOTER: Layout de 1 columna
+    footer {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "ventajas"
+            "redes"
+            "pago"
+            "contacto"
+            "ayuda"
+            "marcas";
+        padding: 20px 15px;
+        gap: 20px;
+        font-size: 13px;
+
+        .logos-marcas {
+            grid-template-columns: repeat(3, max-content) !important;
+            gap: 15px !important;
+        }
+
+        .iconos-pago {
+            grid-template-columns: repeat(3, max-content) !important;
+        }
+    }
+}
+
+//Estilos tamaño tablet
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    header {
+        .header-left {
+            margin-left: 15px;
+
+            a {
+                margin-right: 30px;
+            }
+        }
+
+        .logo {
+            width: 250px;
+        }
+
+        .icon {
+            width: 22px;
+        }
+    }
+
+    nav {
+        grid-template-columns: repeat(5, auto) 1fr;
+        column-gap: 5px;
+
+        .nav-item {
+            font-size: 14px;
+        }
+
+        #buscador {
+            .input-buscador {
+                font-size: 13px;
+            }
+        }
+    }
+
+    // PRODUCTOS: 3 columnas en tablet, luego wrap
+    .inicioProducts {
+        article {
+            grid-template-areas:
+                "titulo titulo titulo"
+                "prod1 prod2 prod3"
+                "prod4 . .";
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 0 30px;
+        }
+
+        .producto img {
+            height: 180px;
+        }
+    }
+
+    // FOOTER: 2 columnas
+    footer {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "ventajas redes"
+            "pago contacto"
+            "ayuda marcas";
+        gap: 25px;
+        padding: 30px 15px;
+
+        .logos-marcas {
+            grid-template-columns: repeat(4, max-content) !important;
+        }
+    }
+}
+
+//Estilos tamaño desktop pequeño
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    // Ajustes menores para desktop pequeño
+    header {
+        .logo {
+            width: 280px;
+        }
+    }
+
+    nav {
+        .nav-item {
+            font-size: 15px;
+        }
+    }
+
+    .inicioProducts {
+        article {
+            padding: 0 35px;
+            gap: 18px;
+        }
+
+        .producto img {
+            height: 190px;
+        }
+    }
+
+    footer {
+        grid-template-columns: repeat(3, 1fr) 1fr;
+        column-gap: 15px;
+
+        .logos-marcas {
+            grid-template-columns: repeat(4, max-content) !important;
+            gap: 15px !important;
+        }
+    }
+}

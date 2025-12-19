@@ -2,44 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cargando L&SSHOP...</title>
+    <meta http-equiv="refresh" content="0;url=web/index.html">
+    <script>
+        window.location.href = "web/index.html";
+    </script>
 </head>
 <body>
-    <h2>Formulario</h2>
-    <form action="backend/index.php" method="POST" enctype="multipart/form-data">
-        <div>
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre"><br>
-        </div>
-            <label for="email">Correo electronico: </label>
-            <input type="email" id="email" name="email"><br>
-        <div>
-            <label for="module">Modulo:</label>
-            <select name="module" id="module">
-                <option value="" default>--Selecciona un Modulo--</option>
-                <option value="DAW">DAW</option>
-                <option value="DAM">DAM</option>
-            </select>
-        </div>
-        <div>
-            <label for="phone">Telefono</label>
-            <input type="tel" name="phone" id="phone"><br>
-        </div>
-        <div>
-            <p>Subir archivo:  </p>
-            <input type="file" name="fichero" id="fichero">
-        </div>
-        <div>
-            <label>
-                <input type="checkbox" name="acepto" value="si" required>
-                Acepto los términos y condiciones
-            </label>
-        </div>
-        <div>
-            <button type="submit" name="submit" value="subir">Enviar</button>
-        </div>
-    </form>
+    <p>Redirigiendo a la tienda...</p>
+    <p>Si no carga automáticamente, <a href="web/index.html">haz clic aquí</a>.</p>
 </body>
 </html>
