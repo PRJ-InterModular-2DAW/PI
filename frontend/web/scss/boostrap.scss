@@ -1,45 +1,56 @@
+// Contenedor principal del slider
+// Se establece posición relativa para que los elementos absolutos hijos (flechas, controles)
+// se posicionen respecto a este contenedor.
 .slider {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; // Asegura que nada se salga del contenedor visualmente
 
+  // Personalización de los items del carrusel de Bootstrap (.carousel-item)
   .carousel-item {
     img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
+      width: 100%;         // La imagen ocupa todo el ancho disponible
+      height: auto;        // Mantiene la proporción de aspecto
+      object-fit: cover;   // Cubre el área sin deformarse (recorta si es necesario)
     }
   }
 
+  // Contenedor interno para agrupar controles si es necesario
   .slider-container {
     position: relative;
   }
 
+  // Estilos personalizados para las flechas de navegación
+  // Reemplazan o complementan a los controles por defecto de Bootstrap
   .img-flecha {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    z-index: 10;
-    width: 50px;
-    transition: opacity 0.3s;
+    position: absolute; // Flotando sobre la imagen
+    top: 50%;           // Centrado verticalmente
+    transform: translateY(-50%); // Ajuste fino del centrado
+    cursor: pointer;    // Manita al pasar el ratón
+    z-index: 10;        // Asegura que esté por encima de las imágenes (z-index alto)
+    width: 50px;        // Tamaño de la flecha
+    transition: opacity 0.3s; // Efecto suave si cambiamos opacidad
 
+    // Flecha derecha: posicionada al 5% del borde derecho
     &.derecha {
       right: 5%;
     }
 
+    // Flecha izquierda: posicionada al 5% del borde izquierdo
+    // Se rota 180 grados para que apunte al otro lado
     &.izquierda {
       left: 5%;
       transform: translateY(-50%) rotate(180deg);
     }
   }
 
+  // Estilos para el control de paginación personalizado (los puntitos o imagen de control)
   .img-pageControl {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    width: 80px;
+    position: absolute; // Flotando sobre el slider
+    bottom: 10%;        // Posicionado cerca del borde inferior
+    left: 50%;          // Centrado horizontalmente
+    transform: translateX(-50%); // Ajuste necesario para centrar elementos absolutos exactos
+    z-index: 10;        // Por encima de las imágenes
+    width: 80px;        // Tamaño del control
   }
 }

@@ -122,14 +122,14 @@ nav {
   column-gap: 3px;
   background-color: colores.$color-background-nav;
   padding: 5px 0;
-  /* Adjusted padding */
+  /* Padding ajustado */
   width: 100%;
-  /* height: 30px; REMOVED to allow content to fit */
+  /* height: 30px; ELIMINADO para permitir que el contenido se ajuste */
   border-bottom: solid 1px colores.$color-text;
   border-top: solid 1px colores.$color-text;
   font-weight: bold;
   align-items: center;
-  /* Center items vertically */
+  /* Centrar elementos verticalmente */
 
   a {
     color: colores.$color-text;
@@ -164,16 +164,16 @@ nav {
     background-color: #f9f9f9;
     transition: all 0.3s ease;
     width: 200px;
-    /* Fixed width as requested implicitly */
+    /* Ancho fijo según lo solicitado implícitamente */
     box-sizing: border-box;
     justify-self: end;
-    /* Align to the right end of the container */
+    /* Alinear al extremo derecho del contenedor */
     margin-right: 10px;
-    /* Little margin from edge */
+    /* Pequeño margen desde el borde */
 
     &:hover,
     &:focus-within {
-      border-color: colores.$color-text; // Assuming this is a dark color, or use specific color
+      border-color: colores.$color-text; // Asumiendo que es un color oscuro, o usar color específico
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       background-color: #fff;
     }
@@ -201,14 +201,14 @@ nav {
     }
   }
 
-  /* .nav-item-rigth class is no longer strictly needed for width if #buscador handles it, 
-     but keeping it for structure if needed */
+  /* La clase .nav-item-rigth ya no es estrictamente necesaria para el ancho si #buscador lo maneja,
+     pero se mantiene por estructura si fuera necesario */
   .nav-item-rigth {
-    /* width: 200px; handled by #buscador */
+    /* width: 200px; manejado por #buscador */
     justify-self: end;
   }
 
-  // Hide mobile-extra items on desktop
+  // Ocultar elementos extra de móvil en escritorio
   .mobile-extra {
     display: none;
   }

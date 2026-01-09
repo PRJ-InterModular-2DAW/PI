@@ -110,14 +110,14 @@ nav {
   column-gap: 3px;
   background-color: #fff;
   padding: 5px 0;
-  /* Adjusted padding */
+  /* Padding ajustado */
   width: 100%;
-  /* height: 30px; REMOVED to allow content to fit */
+  /* height: 30px; ELIMINADO para permitir que el contenido se ajuste */
   border-bottom: solid 1px #000;
   border-top: solid 1px #000;
   font-weight: bold;
   align-items: center;
-  /* Center items vertically */
+  /* Centrar elementos verticalmente */
 }
 nav a {
   color: #000;
@@ -154,12 +154,12 @@ nav #buscador {
   background-color: #f9f9f9;
   transition: all 0.3s ease;
   width: 200px;
-  /* Fixed width as requested implicitly */
+  /* Ancho fijo según lo solicitado implícitamente */
   box-sizing: border-box;
   justify-self: end;
-  /* Align to the right end of the container */
+  /* Alinear al extremo derecho del contenedor */
   margin-right: 10px;
-  /* Little margin from edge */
+  /* Pequeño margen desde el borde */
 }
 nav #buscador:hover, nav #buscador:focus-within {
   border-color: #000;
@@ -185,11 +185,11 @@ nav #buscador .input-buscador {
   color: #000;
 }
 nav {
-  /* .nav-item-rigth class is no longer strictly needed for width if #buscador handles it, 
-     but keeping it for structure if needed */
+  /* La clase .nav-item-rigth ya no es estrictamente necesaria para el ancho si #buscador lo maneja,
+     pero se mantiene por estructura si fuera necesario */
 }
 nav .nav-item-rigth {
-  /* width: 200px; handled by #buscador */
+  /* width: 200px; manejado por #buscador */
   justify-self: end;
 }
 nav .mobile-extra {
@@ -755,7 +755,7 @@ footer .marcasFooter .logos-marcas img {
   }
   nav {
     display: flex;
-    /* Switch to flex for easier mobile menu flow */
+    /* Cambiar a flex para facilitar el flujo del menú móvil */
     flex-wrap: wrap;
     align-items: center;
     padding: 10px 15px;
@@ -769,11 +769,11 @@ footer .marcasFooter .logos-marcas img {
   nav #nav-accesorios,
   nav #nav-relojes,
   nav .mobile-extra {
-    /* Also ensure extra items are controllable */
+    /* Asegurar también que los elementos extra sean controlables */
     display: none;
-    /* Removed !important to allow JS toggle, depends on specificity */
+    /* Eliminado !important para permitir alternar con JS, depende de la especificidad */
     width: 100%;
-    /* Make them take full width in mobile menu */
+    /* Hacer que ocupen todo el ancho en el menú móvil */
     text-align: center;
     border-top: 1px solid #eee;
     padding: 10px 0;

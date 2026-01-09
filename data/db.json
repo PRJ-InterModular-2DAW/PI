@@ -50,6 +50,33 @@
       "nom": "Andrés",
       "cognoms": "García Pérez",
       "data_registre": "2025-10-31T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "nom_usuari": "adam",
+      "contrasenya": "$2y$10$KDDJXlWKXr2WKAPU39Ls3eysl.tyEKP1MJ.UjO/z4zEk2.qUFioNa",
+      "email": "adamakloul@icloud.com",
+      "nom": "Adam",
+      "cognoms": "Aaloul",
+      "data_registre": "2025-12-19T15:36:57+00:00"
+    },
+    {
+      "id": "3",
+      "nom_usuari": "adamaa",
+      "contrasenya": "$2y$10$RLHIMutrOJsRQn3ct.AcDubsQ5O0lCCvz.bKbMeJXNwpiHgbWPss6",
+      "email": "adamakloul@icloud.com",
+      "nom": "Adam",
+      "cognoms": "Aaloul",
+      "data_registre": "2025-12-19T16:15:41+00:00"
+    },
+    {
+      "id": "4",
+      "nom_usuari": "adamaal",
+      "contrasenya": "$2y$10$npekd3pxFteKUnY/pxdcKuNe74ZeCWjVq/hl0VyI4SFm.ZghmKfsG",
+      "email": "adamakloul@icloud.com",
+      "nom": "Adam",
+      "cognoms": "Aaloul",
+      "data_registre": "2025-12-19T16:20:42+00:00"
     }
   ]
 }

@@ -41,7 +41,7 @@
     // NAV: Mantener solo NOVEDADES y buscador visibles por defecto
     nav {
         display: flex;
-        /* Switch to flex for easier mobile menu flow */
+        /* Cambiar a flex para facilitar el flujo del menú móvil */
         flex-wrap: wrap;
         align-items: center;
         padding: 10px 15px;
@@ -57,11 +57,11 @@
         #nav-accesorios,
         #nav-relojes,
         .mobile-extra {
-            /* Also ensure extra items are controllable */
+            /* Asegurar también que los elementos extra sean controlables */
             display: none;
-            /* Removed !important to allow JS toggle, depends on specificity */
+            /* Eliminado !important para permitir alternar con JS, depende de la especificidad */
             width: 100%;
-            /* Make them take full width in mobile menu */
+            /* Hacer que ocupen todo el ancho en el menú móvil */
             text-align: center;
             border-top: 1px solid #eee;
             padding: 10px 0;
