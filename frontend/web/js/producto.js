@@ -20,8 +20,7 @@ async function cargarProducto(id) {
     const producto = await response.json();
 
     // Renderizar producto
-    // Nota: Como db.json no tiene imagen, uso una placeholder o logica simple segun nombre
-    let imagen = "img/header/logo.png"; // Fallback
+    let imagen = producto.imatge || "img/header/logo.png";
 
     const html = `
             <div class="col-md-6 mb-4">

@@ -6,39 +6,35 @@
       "nom": "Camiseta Ralph Lauren",
       "descripcio": "Camiseta de algodon 100% de manga corta",
       "preu": 40,
-      "estoc": 25
+      "estoc": 25,
+      "imatge": "img/productos/poloMangaLarga.png"
     },
     {
       "id": "2",
       "sku": "SKU-2",
-      "nom": "Zapatillas Nike",
+      "nom": "Zapatillas Ralph Lauren",
       "descripcio": "Zapatillas perfectaas para salir a correr",
       "preu": 60,
-      "estoc": 15
+      "estoc": 15,
+      "imatge": "img/productos/zapatillasRalph.png"
     },
     {
       "id": "3",
       "sku": "SKU-3",
-      "nom": "Chaqueta Lacoste",
+      "nom": "Chaqueta Ralph Lauren",
       "descripcio": "Chaqueta perfecta para esos dias de frio",
       "preu": 150,
-      "estoc": 30
+      "estoc": 30,
+      "imatge": "img/productos/chaquetaRalph.png"
     },
     {
       "id": "4",
       "sku": "SKU-4",
-      "nom": "Sudadera The North Face",
-      "descripcio": "Sudadera para el dia a dia",
-      "preu": 50,
-      "estoc": 40
-    },
-    {
-      "id": "5",
-      "sku": "SKU-5",
-      "nom": "Reloj Casio",
-      "descripcio": "Reloj perfecto para uso cotiaidano",
+      "nom": "Cinturón Ralph Lauren",
+      "descripcio": "Cinturón perfecto para uso cotiaidano",
       "preu": 68,
-      "estoc": 23
+      "estoc": 23,
+      "imatge": "img/productos/accesoriosRalph.png"
     }
   ],
   "usuaris": [
@@ -59,24 +55,26 @@
       "nom": "Adam",
       "cognoms": "Aaloul",
       "data_registre": "2025-12-19T15:36:57+00:00"
+    }
+  ],
+  "comentaris": [
+    {
+      "id": "1696",
+      "producto_id": 1,
+      "usuari_id": "2",
+      "nom_usuari": "adam",
+      "comentario": "DCASDSADA",
+      "puntuacio": 5,
+      "fecha": "2026-01-09 15:37:23"
     },
     {
-      "id": "3",
-      "nom_usuari": "adamaa",
-      "contrasenya": "$2y$10$RLHIMutrOJsRQn3ct.AcDubsQ5O0lCCvz.bKbMeJXNwpiHgbWPss6",
-      "email": "adamakloul@icloud.com",
-      "nom": "Adam",
-      "cognoms": "Aaloul",
-      "data_registre": "2025-12-19T16:15:41+00:00"
-    },
-    {
-      "id": "4",
-      "nom_usuari": "adamaal",
-      "contrasenya": "$2y$10$npekd3pxFteKUnY/pxdcKuNe74ZeCWjVq/hl0VyI4SFm.ZghmKfsG",
-      "email": "adamakloul@icloud.com",
-      "nom": "Adam",
-      "cognoms": "Aaloul",
-      "data_registre": "2025-12-19T16:20:42+00:00"
+      "id": "94b4",
+      "producto_id": 1,
+      "usuari_id": "2",
+      "nom_usuari": "adam",
+      "comentario": "dsadfasdasda",
+      "puntuacio": 1,
+      "fecha": "2026-01-09 15:41:27"
     }
   ]
 }

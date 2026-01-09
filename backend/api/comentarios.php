@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json');
+session_set_cookie_params(0, '/');
 session_start();
 require_once '../includes/json_connect.php'; // Usa la config (local o api) definida centralizadamente
 
@@ -42,7 +43,7 @@ if ($method === 'GET') {
     }
 
     $nuevoComentario = [
-        'id' => uniqid(),
+        // 'id' generado por json-server
         'producto_id' => (int) $input['producto_id'],
         'usuari_id' => $_SESSION['user_id'],
         // Usamos el nombre de sesión si existe
@@ -59,7 +60,7 @@ if ($method === 'GET') {
         echo json_encode($result);
     } else {
         http_response_code(500);
-        echo json_encode(['error' => 'Error al guardar en servidor']);
+        echo json_encode(['error' => 'Error al guardar en servidor (La API no respondió 2xx).']);
     }
 }
 ?>
