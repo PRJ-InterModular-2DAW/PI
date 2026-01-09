@@ -3,42 +3,47 @@
     {
       "id": "1",
       "sku": "SKU-1",
-      "nom": "Camiseta Ralph Lauren",
-      "descripcio": "Camiseta de algodon 100% de manga corta",
+      "nom": "Polo Ralph Lauren",
+      "descripcio": "Elegante polo de manga larga de Ralph Lauren, ideal para cualquier ocasión.",
       "preu": 40,
-      "estoc": 25
+      "estoc": 25,
+      "imatge": "poloMangaLarga.png"
     },
     {
       "id": "2",
       "sku": "SKU-2",
-      "nom": "Zapatillas Nike",
-      "descripcio": "Zapatillas perfectaas para salir a correr",
+      "nom": "Zapatillas Ralph Lauren",
+      "descripcio": "Zapatillas de Ralph Lauren con diseño clásico y confort excepcional.",
       "preu": 60,
-      "estoc": 15
+      "estoc": 15,
+      "imatge": "zapatillasRalph.png"
     },
     {
       "id": "3",
       "sku": "SKU-3",
-      "nom": "Chaqueta Lacoste",
-      "descripcio": "Chaqueta perfecta para esos dias de frio",
+      "nom": "Chaqueta Ralph Lauren",
+      "descripcio": "Chaqueta de Ralph Lauren, perfecta para protegerte del frío con estilo.",
       "preu": 150,
-      "estoc": 30
+      "estoc": 30,
+      "imatge": "chaquetaRalph.png"
     },
     {
       "id": "4",
       "sku": "SKU-4",
-      "nom": "Sudadera The North Face",
-      "descripcio": "Sudadera para el dia a dia",
+      "nom": "Cinturón Ralph Lauren",
+      "descripcio": "Cinturón de piel de Ralph Lauren con hebilla metálica distintiva.",
       "preu": 50,
-      "estoc": 40
+      "estoc": 40,
+      "imatge": "accesoriosRalph.png"
     },
     {
       "id": "5",
       "sku": "SKU-5",
       "nom": "Reloj Casio",
-      "descripcio": "Reloj perfecto para uso cotiaidano",
+      "descripcio": "Reloj Casio clásico, resistente y funcional para el día a día.",
       "preu": 68,
-      "estoc": 23
+      "estoc": 23,
+      "imatge": "logo.png"
     }
   ],
   "usuaris": [

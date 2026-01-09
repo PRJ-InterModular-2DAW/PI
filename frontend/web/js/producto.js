@@ -20,30 +20,26 @@ async function cargarProducto(id) {
     const producto = await response.json();
 
     // Renderizar producto
-    // Nota: Como db.json no tiene imagen, uso una placeholder o logica simple segun nombre
-    let imagen = "img/header/logo.png"; // Fallback
+    let imagen = producto.imatge ? `img/productos/${producto.imatge}` : "img/header/logo.png";
 
     const html = `
             <div class="col-md-6 mb-4">
-                <img src="${imagen}" class="img-fluid rounded shadow-sm" alt="${
-      producto.nom
-    }" style="max-height: 400px; object-fit: contain;">
+                <img src="${imagen}" class="img-fluid rounded shadow-sm" alt="${producto.nom
+      }" style="max-height: 400px; object-fit: contain;">
             </div>
             <div class="col-md-6 text-start">
                 <h1 class="fw-bold">${producto.nom}</h1>
                 <p class="text-muted">SKU: ${producto.sku}</p>
                 <h2 class="text-primary mb-4">${producto.preu} €</h2>
                 <p class="lead">${producto.descripcio}</p>
-                <p class="mt-2"><strong>Stock disponible:</strong> ${
-                  producto.estoc
-                }</p>
+                <p class="mt-2"><strong>Stock disponible:</strong> ${producto.estoc
+      }</p>
                 <div class="d-grid gap-2 mt-4">
                     <button class="btn btn-dark btn-lg">Añadir al carrito</button>
-                    ${
-                      producto.estoc < 5
-                        ? '<div class="alert alert-warning mt-2">¡Quedan pocas unidades!</div>'
-                        : ""
-                    }
+                    ${producto.estoc < 5
+        ? '<div class="alert alert-warning mt-2">¡Quedan pocas unidades!</div>'
+        : ""
+      }
                 </div>
             </div>
         `;

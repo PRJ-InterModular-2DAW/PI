@@ -2,7 +2,7 @@
 // backend/includes/json_connect.php
 
 // REVERSIÓN: Usar la configuración original de Docker/JsonServer que funcionaba al usuario
-define('API_URL', 'http://jsonserver:3000');
+define('API_URL', 'http://localhost:3000');
 
 // Función genérica para cURL
 function makeApiRequest(string $endpoint, string $method = 'GET', array $data = [])
