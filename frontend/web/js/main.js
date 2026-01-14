@@ -4,10 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Seleccionar todos los elementos de navegación que están ocultos por defecto en móvil
   // Más los nuevos elementos extra para móvil
   const navItems = [
-    document.getElementById("nav-ropa"),
-    document.getElementById("nav-calzado"),
-    document.getElementById("nav-accesorios"),
-    document.getElementById("nav-relojes"),
+    document.getElementById("nav-mujer"),
+    document.getElementById("nav-hombre"),
     ...document.querySelectorAll(".mobile-extra"),
   ];
 

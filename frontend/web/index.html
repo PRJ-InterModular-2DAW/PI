@@ -16,89 +16,191 @@
   </head>
 
   <body>
-    <header>
-      <div class="header-left">
-        <a class="filtroSexo" href="#">Mujer</a>
-        <a class="filtroSexo" href="#">Hombre</a>
-      </div>
+    <div class="sticky-wrapper">
+      <header>
+        <div class="header-inner container-1480">
+          <a href="index.html">
+            <img src="img/header/logo.png" class="logo" alt="Logo L&SSHOP" />
+          </a>
 
-      <img src="img/header/logo.png" class="logo" alt="Logo L&SSHOP" />
+          <div class="header-right">
+            <!-- 1. Sector de idioma -->
+            <div class="language-selector">
+              <button id="languageTrigger" class="btn-clean">
+                <img
+                  src="img/header/iconoBanderaEspaña.png"
+                  class="icon"
+                  id="languageIcon"
+                  alt="Seleccionar idioma"
+                />
+              </button>
+              <div class="language-dropdown">
+                <a href="#" data-lang="es">
+                  <img src="img/header/iconoBanderaEspaña.png" alt="Español" />
+                  Español
+                </a>
+                <a href="#" data-lang="en">
+                  <img src="img/header/iconoBanderaInglesa.png" alt="English" />
+                  English
+                </a>
+                <a href="#" data-lang="fr">
+                  <img
+                    src="img/header/iconoBanderaFrancia.png"
+                    alt="Français"
+                  />
+                  Français
+                </a>
+              </div>
+            </div>
 
-      <div class="header-right">
-        <img
-          src="img/header/iconoCarritos.png"
-          class="icon"
-          id="carritoCompra"
-          alt="Carrito de compra"
-        />
+            <!-- 2. Perfil -->
+            <a href="../../backend/auth/login.php">
+              <img
+                src="img/header/iconoPerfil.png"
+                class="icon"
+                alt="Perfil de usuario"
+              />
+            </a>
 
-        <img src="img/header/iconoFavoritos.png" class="icon" alt="Favoritos" />
+            <!-- 3. Favoritos -->
+            <button class="btn-clean" id="btnFavoritos">
+              <img
+                src="img/header/iconoFavoritos.png"
+                class="icon"
+                alt="Favoritos"
+              />
+            </button>
 
-        <a href="../../backend/auth/login.php">
-          <img
-            src="img/header/iconoPerfil.png"
-            class="icon"
-            alt="Perfil de usuario"
-          />
-        </a>
+            <!-- 4. Carrito -->
+            <button class="btn-clean" id="carritoCompra">
+              <img
+                src="img/header/iconoCarritos.png"
+                class="icon"
+                alt="Carrito de compra"
+              />
+            </button>
+          </div>
 
-        <img
-          src="img/header/iconoBanderaEspaña.png"
-          class="icon"
-          alt="Bandera de España"
-        />
-      </div>
+          <!-- Menú Hamburger (Mobile) -->
+          <button
+            class="hamburger-btn btn-clean"
+            id="hamburgerBtn"
+            style="display: none"
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/7216/7216128.png"
+              style="width: 30px"
+              alt="Menu"
+            />
+          </button>
+        </div>
+      </header>
 
-      <!-- Menú Hamburger (Mobile) -->
-      <div class="hamburger-btn" id="hamburgerBtn" style="display: none">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/7216/7216128.png"
-          style="width: 30px; cursor: pointer"
-          alt="Menu"
-        />
-      </div>
-    </header>
+      <nav>
+        <div class="nav-inner container-1480">
+          <div class="nav-item" id="novedades">
+            <a href="#">NOVEDADES</a>
+          </div>
+          <div class="nav-item has-dropdown" id="nav-mujer">
+            <a href="#">Mujer</a>
+            <div class="mega-menu">
+              <div class="col">
+                <h4>Marcas</h4>
+                <a href="#">Moncler</a>
+                <a href="#">Stone Island</a>
+              </div>
+              <div class="col">
+                <h4>Ropa</h4>
+                <a href="#">Camisetas</a>
+                <a href="#">Pantalones</a>
+              </div>
+              <div class="col">
+                <h4>Calzado</h4>
+                <a href="#">Zapatillas</a>
+                <a href="#">Botas</a>
+              </div>
+              <div class="col">
+                <h4>Accesorios</h4>
+                <a href="#">Gorras</a>
+                <a href="#">Bufandas</a>
+              </div>
+              <div class="col">
+                <h4>Relojes</h4>
+                <a href="#">Rolex</a>
+                <a href="#">Seiko</a>
+              </div>
+              <div class="col">
+                <h4>Bolsas</h4>
+                <a href="#">Mochilas</a>
+                <a href="#">Bolsos</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-item has-dropdown" id="nav-hombre">
+            <a href="#">Hombre</a>
+            <div class="mega-menu">
+              <div class="col">
+                <h4>Marcas</h4>
+                <a href="#">Nike</a>
+                <a href="#">Adidas</a>
+              </div>
+              <div class="col">
+                <h4>Ropa</h4>
+                <a href="#">Sudaderas</a>
+                <a href="#">Chaquetas</a>
+              </div>
+              <div class="col">
+                <h4>Calzado</h4>
+                <a href="#">Deportivas</a>
+                <a href="#">Formal</a>
+              </div>
+              <div class="col">
+                <h4>Accesorios</h4>
+                <a href="#">Cinturones</a>
+                <a href="#">Gafas</a>
+              </div>
+              <div class="col">
+                <h4>Relojes</h4>
+                <a href="#">Casio</a>
+                <a href="#">Omega</a>
+              </div>
+              <div class="col">
+                <h4>Bolsas</h4>
+                <a href="#">Bandoleras</a>
+                <a href="#">Maletas</a>
+              </div>
+            </div>
+          </div>
 
-    <nav>
-      <div class="nav-item" id="novedades">
-        <a href="#">NOVEDADES</a>
-      </div>
-      <div class="nav-item" id="nav-ropa">
-        <a href="#">Ropa</a>
-      </div>
-      <div class="nav-item" id="nav-calzado">
-        <a href="#">Calzado</a>
-      </div>
-      <div class="nav-item" id="nav-accesorios">
-        <a href="#">Accesorios</a>
-      </div>
-      <div class="nav-item" id="nav-relojes">
-        <a href="#">Relojes</a>
-      </div>
+          <!-- Elementos extra para móvil (ocultos en PC) -->
+          <div class="nav-item mobile-extra" id="nav-idioma">
+            <a href="#">Idioma (ES)</a>
+          </div>
+          <div class="nav-item mobile-extra" id="nav-perfil">
+            <a href="../../backend/auth/login.php">Iniciar Sesión</a>
+          </div>
+          <div class="nav-item mobile-extra" id="nav-favoritos">
+            <a href="#">Favoritos</a>
+          </div>
+          <div class="nav-item mobile-extra" id="nav-carrito">
+            <a href="#">Carrito</a>
+          </div>
 
-      <!-- Elementos extra para móvil (ocultos en PC) -->
-      <div class="nav-item mobile-extra" id="nav-idioma">
-        <a href="#">Idioma (ES)</a>
-      </div>
-      <div class="nav-item mobile-extra" id="nav-perfil">
-        <a href="../../backend/auth/login.php">Iniciar Sesión</a>
-      </div>
-      <div class="nav-item mobile-extra" id="nav-favoritos">
-        <a href="#">Favoritos</a>
-      </div>
-      <div class="nav-item mobile-extra" id="nav-carrito">
-        <a href="#">Carrito</a>
-      </div>
+          <div class="nav-item-rigth" id="buscador">
+            <img src="img/nav/iconoBuscar.png" alt="Buscar" />
+            <input
+              type="text"
+              placeholder="Buscar . . ."
+              class="input-buscador"
+            />
+          </div>
+        </div>
+      </nav>
+    </div>
 
-      <div class="nav-item-rigth" id="buscador">
-        <img src="img/nav/iconoBuscar.png" alt="Buscar" />
-        <input type="text" placeholder="Buscar . . ." class="input-buscador" />
-      </div>
-    </nav>
-
-    <section class="slider">
-      <div class="slider-container" style="position: relative">
-        <!-- Bootstrap Carousel -->
+    <section class="slider" style="margin-top: 40px">
+      <div class="slider-container container-1480" style="position: relative">
+        <!-- Carrusel de Bootstrap -->
         <div
           id="carouselExample"
           class="carousel slide"
@@ -136,16 +238,14 @@
         <!-- PageControl: Centrado abajo -->
         <img
           src="img/carruselPrincipal/pageControl.png"
-          alt="pageControl"
+          alt="Indicador de página"
           class="img-pageControl"
           id="pageControl"
         />
 
         <!-- Flecha Izquierda (Inicialmente Oculta para la Diapositiva 1) -->
-        <img
-          src="img/carruselPrincipal/flecha.png"
-          alt="flecha izquierda"
-          class="img-flecha"
+        <button
+          class="img-flecha btn-clean"
           id="flechaIzquierda"
           style="
             left: 20px;
@@ -155,13 +255,17 @@
             top: 50%;
             width: 40px;
           "
-        />
+        >
+          <img
+            src="img/carruselPrincipal/flecha.png"
+            alt="flecha izquierda"
+            style="width: 100%"
+          />
+        </button>
 
         <!-- Flecha Derecha -->
-        <img
-          src="img/carruselPrincipal/flecha.png"
-          alt="flecha derecha"
-          class="img-flecha"
+        <button
+          class="img-flecha btn-clean"
           id="flechaDerecha"
           style="
             left: auto;
@@ -170,11 +274,17 @@
             transform: translateY(-50%);
             width: 40px;
           "
-        />
+        >
+          <img
+            src="img/carruselPrincipal/flecha.png"
+            alt="flecha derecha"
+            style="width: 100%"
+          />
+        </button>
       </div>
     </section>
 
-    <section class="inicioProducts">
+    <section class="inicioProducts container-1480">
       <article>
         <h3 class="tituloProductos">RALPH LAUREN</h3>
         <div class="producto" id="prod-1">
@@ -225,137 +335,151 @@
     </section>
 
     <footer>
-      <div class="ventajasFooter">
-        <p class="titulo-footer">Nuestras ventajas</p>
-        <a href="#">Envios gratuitos</a>
-        <a href="#">Devoluciones gratuita</a>
-        <a href="#">Derecho de devolucion de 30 dias</a>
-      </div>
-
-      <div class="ayudaFooter">
-        <p class="titulo-footer">Ayuda y contacto</p>
-        <a href="#">Devolver un pedido</a>
-        <a href="#">Seguir tu pedido</a>
-        <a href="#">Información sobre entregas</a>
-      </div>
-
-      <div class="redesSociales">
-        <p class="titulo-footer">Nuestras redes sociales:</p>
-        <div class="iconos-redes">
-          <img
-            class="logo"
-            src="img/footer/redes/logoInstagram.png"
-            alt="Instagram"
-          />
-          <img
-            class="logo"
-            src="img/footer/redes/logoFacebook.png"
-            alt="Facebook"
-          />
-          <img class="logo" src="img/footer/redes/logoX.png" alt="X" />
+      <div class="footer-inner container-1480">
+        <div class="ventajasFooter">
+          <p class="titulo-footer">Nuestras ventajas</p>
+          <a href="#">Envios gratuitos</a>
+          <a href="#">Devoluciones gratuita</a>
+          <a href="#">Derecho de devolucion de 30 dias</a>
         </div>
-      </div>
 
-      <div class="infoContacto">
-        <article class="item-contacto">
-          <img src="img/footer/contacto/telefono.png" alt="Teléfono" />
-          <p>+34 000 000 000</p>
-        </article>
-        <article class="item-contacto">
-          <img src="img/footer/contacto/correoEectronico.png" alt="Email" />
-          <p>ejemplo@gmail.com</p>
-        </article>
-      </div>
-
-      <div class="marcasFooter">
-        <p class="titulo-footer">Nuestras marcas</p>
-        <div class="logos-marcas">
-          <img
-            class="logo"
-            src="img/footer/marcas/maison-margiela.png"
-            alt="maison-margiela"
-          />
-          <img
-            class="logo"
-            src="img/footer/marcas/Moncler_logo.png"
-            alt="Moncler"
-          />
-          <img
-            class="logo"
-            src="img/footer/marcas/Stone-Island.png"
-            alt="Stone-Island"
-          />
-          <img
-            class="logo"
-            src="img/footer/marcas/Tom-Ford.png"
-            alt="Tom-Ford"
-          />
-          <img
-            class="logo"
-            src="img/footer/marcas/jacquemus.png"
-            alt="jacquemus"
-          />
-          <img class="logo" src="img/footer/marcas/dior_logo.jpg" alt="" />
-          <img class="logo" src="img/footer/marcas/Rolex.png" alt="Rolex" />
-          <img class="logo" src="img/footer/marcas/seiko.png" alt="seiko" />
-          <img
-            class="logo"
-            src="img/footer/marcas/gallery_dept.webp"
-            alt="gallery_dept"
-          />
-          <img class="logo" src="img/footer/marcas/hermes.png" alt="hermes" />
-          <img
-            class="logo"
-            src="img/footer/marcas/emporio-armani.png"
-            alt="emporio-armani"
-          />
-          <img
-            class="logo"
-            src="img/footer/marcas/hugoboss.webp"
-            alt="hugoboss"
-          />
-          <img class="logo" src="img/footer/marcas/lv.png" alt="lv" />
-          <img
-            class="logo"
-            src="img/footer/marcas/ralph-lauren.png"
-            alt="ralph-lauren"
-          />
-          <img class="logo" src="img/footer/marcas/lacoste.png" alt="lacoste" />
-          <img
-            class="logo"
-            src="img/footer/marcas/underArmour-Mansory.png"
-            alt=""
-          />
-          <img class="logo" src="img/footer/marcas/d&g.png" alt="d&g" />
-          <img class="logo" src="img/footer/marcas/cartier.png" alt="cartier" />
+        <div class="ayudaFooter">
+          <p class="titulo-footer">Ayuda y contacto</p>
+          <a href="#">Devolver un pedido</a>
+          <a href="#">Seguir tu pedido</a>
+          <a href="#">Información sobre entregas</a>
         </div>
-      </div>
 
-      <div class="payMetodsFooter">
-        <p class="titulo-footer">Nuestros métodos de pago:</p>
-        <div class="iconos-pago">
-          <img
-            class="logo"
-            src="img/footer/metodoPago/logoPaypal.png"
-            alt="Paypal"
-          />
-          <img
-            class="logo"
-            src="img/footer/metodoPago/logoVisa.png"
-            alt="Visa"
-          />
-          <img
-            class="logo"
-            src="img/footer/metodoPago/logoMastercard.png"
-            alt="Mastercard"
-          />
+        <div class="redesSociales">
+          <p class="titulo-footer">Nuestras redes sociales:</p>
+          <div class="iconos-redes">
+            <img
+              class="logo"
+              src="img/footer/redes/logoInstagram.png"
+              alt="Instagram"
+            />
+            <img
+              class="logo"
+              src="img/footer/redes/logoFacebook.png"
+              alt="Facebook"
+            />
+            <img class="logo" src="img/footer/redes/logoX.png" alt="X" />
+          </div>
+        </div>
+
+        <div class="infoContacto">
+          <article class="item-contacto">
+            <img src="img/footer/contacto/telefono.png" alt="Teléfono" />
+            <p>+34 000 000 000</p>
+          </article>
+          <article class="item-contacto">
+            <img src="img/footer/contacto/correoEectronico.png" alt="Email" />
+            <p>ejemplo@gmail.com</p>
+          </article>
+        </div>
+
+        <div class="marcasFooter">
+          <p class="titulo-footer">Nuestras marcas</p>
+          <div class="logos-marcas">
+            <img
+              class="logo"
+              src="img/footer/marcas/maison-margiela.png"
+              alt="maison-margiela"
+            />
+            <img
+              class="logo"
+              src="img/footer/marcas/Moncler_logo.png"
+              alt="Moncler"
+            />
+            <img
+              class="logo"
+              src="img/footer/marcas/Stone-Island.png"
+              alt="Stone-Island"
+            />
+            <img
+              class="logo"
+              src="img/footer/marcas/Tom-Ford.png"
+              alt="Tom-Ford"
+            />
+            <img
+              class="logo"
+              src="img/footer/marcas/jacquemus.png"
+              alt="jacquemus"
+            />
+            <img
+              class="logo"
+              src="img/footer/marcas/dior_logo.jpg"
+              alt="Dior"
+            />
+            <img class="logo" src="img/footer/marcas/Rolex.png" alt="Rolex" />
+            <img class="logo" src="img/footer/marcas/seiko.png" alt="seiko" />
+            <img
+              class="logo"
+              src="img/footer/marcas/gallery_dept.webp"
+              alt="gallery_dept"
+            />
+            <img class="logo" src="img/footer/marcas/hermes.png" alt="hermes" />
+            <img
+              class="logo"
+              src="img/footer/marcas/emporio-armani.png"
+              alt="emporio-armani"
+            />
+            <img
+              class="logo"
+              src="img/footer/marcas/hugoboss.webp"
+              alt="hugoboss"
+            />
+            <img class="logo" src="img/footer/marcas/lv.png" alt="lv" />
+            <img
+              class="logo"
+              src="img/footer/marcas/ralph-lauren.png"
+              alt="ralph-lauren"
+            />
+            <img
+              class="logo"
+              src="img/footer/marcas/lacoste.png"
+              alt="lacoste"
+            />
+            <img
+              class="logo"
+              src="img/footer/marcas/underArmour-Mansory.png"
+              alt="Under Armour Mansory"
+            />
+            <img class="logo" src="img/footer/marcas/d&g.png" alt="d&g" />
+            <img
+              class="logo"
+              src="img/footer/marcas/cartier.png"
+              alt="cartier"
+            />
+          </div>
+        </div>
+
+        <div class="payMetodsFooter">
+          <p class="titulo-footer">Nuestros métodos de pago:</p>
+          <div class="iconos-pago">
+            <img
+              class="logo"
+              src="img/footer/metodoPago/logoPaypal.png"
+              alt="Paypal"
+            />
+            <img
+              class="logo"
+              src="img/footer/metodoPago/logoVisa.png"
+              alt="Visa"
+            />
+            <img
+              class="logo"
+              src="img/footer/metodoPago/logoMastercard.png"
+              alt="Mastercard"
+            />
+          </div>
         </div>
       </div>
     </footer>
     <!-- Modal Login/Register -->
     <div class="modal-overlay" id="authModal">
       <div class="login-card">
-        <span class="close-modal" id="closeModal">&times;</span>
+        <button class="close-modal btn-clean" id="closeModal">&times;</button>
         <h2 class="login-title">
           Entra en <span class="brand-thin">L&</span
           ><span class="brand-bold">SS</span>HOP
@@ -585,5 +709,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/login_ajax.js"></script>
     <script src="js/auth_ui.js"></script>
+    <script src="js/language-selector.js"></script>
   </body>
 </html>

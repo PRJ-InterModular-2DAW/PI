@@ -10,15 +10,21 @@ body {
 }
 
 header {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "header-left logo header-right";
-  padding: 10px 20px;
   background-color: #fff1cf;
+  /* El padding se mueve o se reduce para dejar que el layout interno maneje el ancho */
+  padding: 0;
   color: #000;
   font-weight: bold;
   text-decoration: none;
+}
+
+header .header-inner.container-1480 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 header .header-left {
   grid-area: header-left;
@@ -92,32 +98,90 @@ header .header-right img {
   margin-top: 4%;
   float: right;
 }
+
+/* Desplegable del selector de idioma */
+header .header-right .language-selector {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  margin-top: 4%;
+  float: right;
+}
+
+header .header-right .language-selector .icon {
+  cursor: pointer;
+  margin: 0;
+  float: none;
+}
+
+header .header-right .language-selector .language-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #ffffff;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 4px;
+  border: 1px solid #eaeaea;
+  margin-top: 5px;
+}
+
+header .header-right .language-selector .language-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+header .header-right .language-selector .language-dropdown a img {
+  width: 20px;
+  height: 15px;
+  margin: 0;
+  float: none;
+}
+
+header .header-right .language-selector .language-dropdown a:hover {
+  background-color: #f1f1f1;
+  color: #000;
+}
+
+header .header-right .language-selector.active .language-dropdown {
+  display: block;
+}
+
 header .icon {
   width: 25px;
   margin-right: 5px;
 }
 header .logo {
-  grid-area: logo;
-  justify-self: center;
   width: 300px;
 }
 
 /*--------------- APARTADO DEL NAVEGADOR (OPTIMIZADO) ---------------*/
 nav {
-  display: grid;
-  grid-template-areas: "novedades ropa calzado accesorios relojes buscador";
-  grid-template-columns: repeat(5, auto) 1fr;
-  column-gap: 3px;
   background-color: #fff;
-  padding: 5px 0;
-  /* Padding ajustado */
-  width: 100%;
-  /* height: 30px; ELIMINADO para permitir que el contenido se ajuste */
   border-bottom: solid 1px #000;
   border-top: solid 1px #000;
+  width: 100%;
+}
+
+nav .nav-inner.container-1480 {
+  display: grid;
+  grid-template-areas: "novedades mujer hombre buscador";
+  grid-template-columns: auto auto auto 1fr;
+  column-gap: 40px;
+  /* Se eliminó el relleno horizontal para alinear estrictamente con 1480px */
+  padding: 5px 0;
   font-weight: bold;
   align-items: center;
-  /* Centrar elementos verticalmente */
+  width: 100%;
+  box-sizing: border-box;
 }
 nav a {
   color: #000;
@@ -132,17 +196,83 @@ nav #novedades {
   border-right: solid 2px #000;
   padding-right: 15px;
 }
-nav #ropa {
-  grid-area: ropa;
+nav #nav-mujer {
+  grid-area: mujer;
 }
-nav #calzado {
-  grid-area: calzado;
+nav #nav-hombre {
+  grid-area: hombre;
 }
-nav #accesorios {
-  grid-area: accesorios;
+
+/* --------------- ESTILOS DEL MEGA MENÚ --------------- */
+/* Para que el mega menu se posicione relativo al nav o a un contenedor */
+nav .nav-item.has-dropdown {
+  position: static; /* Static para que el desplegable pueda ser de ancho completo relativo al contenedor de navegación si queremos, o relativo */
 }
-nav #relojes {
-  grid-area: relojes;
+
+/* Si queremos que el dropdown sea del ancho del container de la nav,
+   podemos hacerlo absolute relativo al nav-inner si este tiene position relative.
+   Pero si queremos full browser width, es otra cosa.
+   El usuario pide alineado a 1480px, asi que debe encajar en el container.
+*/
+nav .nav-inner {
+  position: relative;
+}
+
+.mega-menu {
+  /* Configuración de animación */
+  display: grid;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+
+  /* Diseño y estilo */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff1cf; /* Color del header */
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px; /* Aumentado de 20px para más altura */
+  z-index: 1000;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  border-radius: 0 0 10px 10px;
+}
+
+.nav-item.has-dropdown:hover .mega-menu,
+.nav-item.has-dropdown:focus-within .mega-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mega-menu .col {
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-menu .col h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+  color: #000;
+}
+
+.mega-menu .col a {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mega-menu .col a:hover {
+  text-decoration: underline;
+  color: #000;
 }
 nav #buscador {
   grid-area: buscador;
@@ -161,7 +291,8 @@ nav #buscador {
   margin-right: 10px;
   /* Pequeño margen desde el borde */
 }
-nav #buscador:hover, nav #buscador:focus-within {
+nav #buscador:hover,
+nav #buscador:focus-within {
   border-color: #000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #fff;
@@ -172,7 +303,8 @@ nav #buscador img {
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
-nav #buscador:hover img, nav #buscador:focus-within img {
+nav #buscador:hover img,
+nav #buscador:focus-within img {
   opacity: 1;
 }
 nav #buscador .input-buscador {
@@ -198,8 +330,8 @@ nav .mobile-extra {
 
 .slider .img-slider {
   height: 300px;
-  width: 97.5%;
-  margin: 20px;
+  width: 100%;
+  margin: 0;
   border-radius: 20px;
   background-color: #d6d8df;
 }
@@ -208,8 +340,8 @@ nav .mobile-extra {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   position: relative;
-  width: 95%;
-  margin: 20px;
+  width: 100%;
+  margin: 20px 0;
   border-radius: 20px;
 }
 .slider-container .img-slider {
@@ -218,6 +350,7 @@ nav .mobile-extra {
   object-fit: cover;
   border-radius: 20px;
   background-color: #d6d8df;
+  margin: 0;
 }
 .slider-container .img-flecha {
   position: absolute;
@@ -240,19 +373,30 @@ nav .mobile-extra {
   width: 60px;
 }
 
+/* Utilidad del contenedor principal */
+.container-1480 {
+  max-width: 1480px;
+  margin: 0 auto;
+  /* Asegurar que el relleno interior no propague el ancho */
+  box-sizing: border-box;
+}
+
 /*--------------- Apartado de productos en el body  ---------------*/
 .inicioProducts {
-  margin: 0px 20px 20px 20px;
+  /* margen reemplazado por margen automático de la clase contenedora */
   border-radius: 20px;
   background-color: #fff;
-  padding-bottom: 40px;
+  padding: 20px 0 40px 0; /* Alinear a los bordes */
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .inicioProducts article {
   display: grid;
   grid-template-areas: "titulo titulo titulo titulo" "prod1 prod2 prod3 prod4";
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  padding: 0 40px;
+  /* relleno eliminado de aquí porque ahora es manejado por el relleno del contenedor exterior o encaja naturalmente */
+  padding: 0;
 }
 .inicioProducts .tituloProductos {
   grid-area: titulo;
@@ -353,15 +497,22 @@ nav .mobile-extra {
 footer {
   color: #fff;
   background-color: #9196ae;
-  padding: 40px 20px;
+  /* relleno movido al contenedor interior */
+  padding: 40px 0;
   font-size: 14px;
   margin-top: 20px;
   margin-bottom: 0;
+}
+
+footer .footer-inner.container-1480 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas: "ventajas redes pago contacto" "ayuda    marcas .    .";
   column-gap: 20px;
   row-gap: 40px;
+  column-gap: 20px;
+  row-gap: 40px;
+  padding: 0; /* Alinear a los bordes */
 }
 footer .titulo-footer {
   font-weight: bold;
@@ -546,37 +697,7 @@ footer .marcasFooter .logos-marcas img {
   animation-iteration-count: 3;
 }
 
-#nav-ropa {
-  animation-delay: 0.5s;
-  animation-name: saltoCarrito;
-  animation-duration: 0.8s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
-}
-
-#nav-calzado {
-  animation-delay: 0.7s;
-  animation-name: saltoCarrito;
-  animation-duration: 0.8s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
-}
-
-#nav-accesorios {
-  animation-delay: 1s;
-  animation-name: saltoCarrito;
-  animation-duration: 0.8s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
-}
-
-#nav-relojes {
-  animation-delay: 1.3s;
-  animation-name: saltoCarrito;
-  animation-duration: 0.8s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
-}
+/* Animaciones eliminadas para elementos de navegación eliminados */
 
 .slider {
   position: relative;
@@ -686,7 +807,7 @@ footer .marcasFooter .logos-marcas img {
   border-color: #333;
   outline: none;
 }
-.profile-container .profile-form button[type=submit] {
+.profile-container .profile-form button[type="submit"] {
   grid-column: 1/-1;
   padding: 12px;
   background-color: #333;
@@ -700,7 +821,7 @@ footer .marcasFooter .logos-marcas img {
   margin-top: 10px;
   transition: background-color 0.3s;
 }
-.profile-container .profile-form button[type=submit]:hover {
+.profile-container .profile-form button[type="submit"]:hover {
   background-color: #000;
 }
 .profile-container .profile-actions {
@@ -732,10 +853,37 @@ footer .marcasFooter .logos-marcas img {
 
 @media (max-width: 768px) {
   header {
+    /* Header inner takes over layout */
+    padding: 0;
+  }
+  header .header-inner.container-1480 {
+    display: grid;
     grid-template-columns: 1fr auto 1fr;
     grid-template-areas: "logo logo hamburger" "mobile-menu mobile-menu mobile-menu";
     position: relative;
+    padding: 10px 15px;
   }
+
+  /* Reset nav for mobile */
+  nav {
+    display: block; /* The outer wrapper */
+  }
+  nav .nav-inner.container-1480 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 10px;
+  }
+
+  nav .nav-item.has-dropdown:hover .mega-menu {
+    display: none; /* Hide hover effect on mobile usually, or style differently */
+  }
+
+  /* Mobile Styles for Mega Menu if needed, or hide it */
+  /* For now, simplified or hidden as user didn't specify mobile behavior for mega menu explicitly, 
+     but standard is accordion or simplified. */
+
   header .header-left {
     display: none !important;
   }
@@ -750,30 +898,19 @@ footer .marcasFooter .logos-marcas img {
   header .hamburger-btn {
     display: flex !important;
     justify-self: end;
-    margin-right: 20px;
+    /* margin-right moved to grid/flex layout logic */
+    margin-right: 0;
     margin-top: 10px;
   }
-  nav {
-    display: flex;
-    /* Cambiar a flex para facilitar el flujo del menú móvil */
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 10px 15px;
-    gap: 10px;
-  }
+  /* nav styles are now in .nav-inner */
   nav .nav-item {
     font-size: 13px;
   }
-  nav #nav-ropa,
-  nav #nav-calzado,
-  nav #nav-accesorios,
-  nav #nav-relojes,
+  nav #nav-mujer,
+  nav #nav-hombre,
   nav .mobile-extra {
-    /* Asegurar también que los elementos extra sean controlables */
     display: none;
-    /* Eliminado !important para permitir alternar con JS, depende de la especificidad */
     width: 100%;
-    /* Hacer que ocupen todo el ancho en el menú móvil */
     text-align: center;
     border-top: 1px solid #eee;
     padding: 10px 0;
@@ -786,7 +923,7 @@ footer .marcasFooter .logos-marcas img {
     flex-grow: 1;
   }
   .slider-container {
-    margin: 10px;
+    margin: 10px auto; /* Centered */
     width: calc(100% - 20px);
   }
   .slider-container .img-slider {
@@ -916,3 +1053,63 @@ footer .marcasFooter .logos-marcas img {
 }
 
 /*# sourceMappingURL=estilos.css.map */
+
+/* Accesibilidad: Foco visible */
+:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+
+/* Utilidad para botones sin estilo por defecto (para envolver iconos) */
+.btn-clean {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Corregir diseño del encabezado: Usar Flexbox para mejor control y orden */
+header .header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100%; /* Asegurar que tome toda la altura si es necesario */
+}
+
+/* Ajustes de los hijos dentro de header-right */
+header .header-right .language-selector,
+header .header-right #carritoCompra,
+header .header-right a,
+header .header-right button {
+  float: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Reiniciar estilos de imagen dentro de botones en header-right para evitar márgenes/flotantes dobles */
+header .header-right button img,
+header .header-right a img,
+header .header-right .language-selector img {
+  float: none;
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* Eliminar reglas de flotación antiguas específicas que podrían entrar en conflicto */
+header .header-right #carritoCompra {
+  float: none;
+  margin: 0;
+}
+
+/* Envoltorio para hacer sticky el encabezado y la navegación */
+.sticky-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 990; /* Z-index alto pero menor que el modal (1000) */
+  width: 100%;
+}

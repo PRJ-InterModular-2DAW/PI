@@ -18,35 +18,39 @@
   </head>
   <body>
     <!-- Header reutilizado -->
-    <header>
-      <div class="header-left">
-        <a class="filtroSexo" href="index.html">Inicio</a>
-      </div>
-      <img src="img/header/logo.png" class="logo" alt="Logo L&SSHOP" />
-      <div class="header-right">
-        <img
-          src="img/header/iconoCarritos.png"
-          class="icon"
-          id="carritoCompra"
-          alt="Carrito"
-        />
-        <a href="../../backend/auth/login.php">
-          <img src="img/header/iconoPerfil.png" class="icon" alt="Perfil" />
-        </a>
-      </div>
-    </header>
+    <div class="sticky-wrapper">
+      <header>
+        <div class="header-inner container-1480">
+          <a href="index.html">
+            <img src="img/header/logo.png" class="logo" alt="Logo L&SSHOP" />
+          </a>
+          <div class="header-right">
+            <button class="btn-clean" id="carritoCompra">
+              <img
+                src="img/header/iconoCarritos.png"
+                class="icon"
+                alt="Carrito"
+              />
+            </button>
+            <a href="../../backend/auth/login.php">
+              <img src="img/header/iconoPerfil.png" class="icon" alt="Perfil" />
+            </a>
+          </div>
+        </div>
+      </header>
+    </div>
 
-    <div class="container mt-5 mb-5">
+    <div class="container-1480 mt-5 mb-5">
       <!-- Detalle Producto -->
       <div class="row" id="producto-container">
         <div class="col-md-6 text-center">
-          <!-- Imagen placeholder o loader -->
+          <!-- Marcador de posición de imagen o cargador -->
           <div class="spinner-border text-secondary" role="status">
             <span class="visually-hidden">Cargando...</span>
           </div>
         </div>
         <div class="col-md-6">
-          <!-- Info placeholder -->
+          <!-- Marcador de posición de información -->
         </div>
       </div>
 
@@ -97,13 +101,15 @@
     </div>
 
     <footer>
-      <p class="text-center py-4">L&SSHOP &copy; 2025</p>
+      <div class="footer-inner container-1480">
+        <p class="text-center py-4">L&SSHOP &copy; 2025</p>
+      </div>
     </footer>
 
     <!-- Modal Login/Register COPIADO DE INDEX -->
     <div class="modal-overlay" id="authModal">
       <div class="login-card">
-        <span class="close-modal" id="closeModal">&times;</span>
+        <button class="close-modal btn-clean" id="closeModal">&times;</button>
         <h2 class="login-title">
           Entra en <span class="brand-thin">L&</span
           ><span class="brand-bold">SS</span>HOP
@@ -114,7 +120,7 @@
           <a href="#" class="tab" id="tabRegister">Registrarte</a>
         </div>
 
-        <!-- Login Form -->
+        <!-- Formulario de inicio de sesión -->
         <div class="form-content active" id="formLogin">
           <form
             method="POST"
@@ -149,7 +155,7 @@
           </form>
         </div>
 
-        <!-- Register Form -->
+        <!-- Formulario de registro -->
         <div class="form-content" id="formRegister">
           <form
             method="POST"

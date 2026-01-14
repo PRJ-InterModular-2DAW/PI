@@ -11,7 +11,7 @@
     {
       "id": 2,
       "sku": "SKU-2",
-      "nom": "Zapatillas Nike",
+      "nom": "Zapatillas Ralph Lauren",
       "descripcio": "Zapatillas perfectaas para salir a correr",
       "preu": 60,
       "estoc": 15
@@ -19,23 +19,15 @@
     {
       "id": 3,
       "sku": "SKU-3",
-      "nom": "Chaqueta Lacoste",
+      "nom": "Chaqueta Ralph Lauren",
       "descripcio": "Chaqueta perfecta para esos dias de frio",
       "preu": 150,
       "estoc": 30
     },
     {
       "id": 4,
-      "sku": "SKU-4",
-      "nom": "Sudadera The North Face",
-      "descripcio": "Sudadera para el dia a dia",
-      "preu": 50,
-      "estoc": 40
-    },
-    {
-      "id": 5,
       "sku": "SKU-5",
-      "nom": "Reloj Casio",
+      "nom": "Cinturón Ralph Lauren",
       "descripcio": "Reloj perfecto para uso cotiaidano",
       "preu": 68,
       "estoc": 23
